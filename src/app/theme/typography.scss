@@ -1,0 +1,189 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+
+@include font("SF Pro Display", 300, "SFProDisplay", "SFProDisplay-Light");
+@include font("SF Pro Display", 400, "SFProDisplay", "SFProDisplay-Regular");
+@include font("SF Pro Display", 500, "SFProDisplay", "SFProDisplay-Medium");
+@include font("SF Pro Display", 700, "SFProDisplay", "SFProDisplay-Bold");
+@include font("SF Pro Display", 800, "SFProDisplay", "SFProDisplay-Black");
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+.h0, .h1, .h2, .h3, .h4, .h5 {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+p{
+    font-weight: 400;
+}
+
+
+// TITLE
+
+.h1 {
+    font-size: 72px;
+    line-height: 120%;
+
+    @media only screen and (max-width: $bp-xl) {
+        font-size: 62px;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        font-size: 52px;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        font-size: 40px;
+    }
+}
+
+.h2 {
+    font-size: 64px;
+    line-height: 120%;
+
+    @media only screen and (max-width: $bp-xxl) {
+        font-size: 58px;
+    }
+
+    @media only screen and (max-width: $bp-xl) {
+        font-size: 48px;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        font-size: 36px;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        font-size: 24px;
+    }
+}
+
+.h3 {
+    font-size: 44px;
+    line-height: 120%;
+
+    @media only screen and (max-width: $bp-xl) {
+        font-size: 38px;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        font-size: 32px;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        font-size: 24px;
+    }
+}
+
+.h4 {
+    font-size: 40px;
+    line-height: 120%;
+
+    @media only screen and (max-width: $bp-xl) {
+        font-size: 34px;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        font-size: 28px;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        font-size: 20px;
+    }
+}
+
+.h5 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 160%;
+}
+
+// TEXT
+
+.text{
+    font-size: 16px;
+    line-height: 138%;
+
+    &-xl{
+        font-size: 20px;
+        line-height: 138%;
+    }
+
+    &-lg{
+        font-size: 18px;
+        line-height: 135%;
+    }
+
+    &-md{
+        font-size: 14px;
+        line-height: 135%;
+    }
+
+    &-sm{
+        font-size: 12px;
+        line-height: 140%;
+    }
+
+    //STYLE
+
+    &-border{
+        -webkit-text-stroke: 1px #8C8C8C;
+    }
+
+    //WEIGHT
+
+    &-100{
+        font-weight: 100;
+    }
+
+    &-200{
+        font-weight: 200;
+    }
+
+    &-300{
+        font-weight: 300;
+    }
+
+    &-400{
+        font-weight: 400;
+    }
+    
+    &-500{
+        font-weight: 500;
+    }
+
+    &-600{
+        font-weight: 600;
+    }
+
+    &-700{
+        font-weight: 700;
+    }
+
+    &-800{
+        font-weight: 800;
+    }
+
+    &-900{
+        font-weight: 900;
+    }
+
+    //FAMILY
+
+    &-opensans{
+        font-family: 'Open Sans';
+    }
+
+    &-caravan{
+        font-family: 'Caravan';
+    }
+
+    &-craftwork{
+        font-family: 'Craftwork Grotesk';
+    }
+}

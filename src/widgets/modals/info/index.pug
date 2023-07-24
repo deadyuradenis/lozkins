@@ -1,0 +1,40 @@
+include /core/lib/layout/index.pug
+
+include /core/ui/modal/index.pug
+
+mixin modalInfo(props = {})
+    +modal({class: ['modal--info'], id: 'm-info',})
+        .modal__menu 
+            button.modal-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                +icon('cancel')
+
+        .modal__bg
+            picture.modal__bg-image 
+                img(src="assets/images/modals/info.jpg", alt="")
+            
+        .modal__main
+            .modal__body 
+                .modal__list 
+                    .modal__list-item 
+                        +icon('ok')
+                        .modal__list-content 
+                            p Кандидат физ.-мат. наук, специальность Математическое моделирование, численные методы и комплексы программ;
+                    
+                    .modal__list-item 
+                        +icon('ok')
+                        .modal__list-content 
+                            p Опыт разработки математических моделей и оптимизационных решений – 9 лет;
+                    
+                    .modal__list-item 
+                        +icon('ok')
+                        .modal__list-content 
+                            p В найме успешно запустил крупные оптимизационные решения для Huawei, Деловые Линии, Газпром Нефть и других компаний;
+                    
+                    .modal__list-item 
+                        +icon('ok')
+                        .modal__list-content 
+                            p Наличие экспертизы оптимизации  транспортной логистики, цепочек поставок, производственного планирования и маршрутизации.
+
+                .modal__actions 
+                    button.button.button--lg.modal__action(type="button", data-bs-toggle="modal", data-bs-target="#m-info")
+                        span.button__text Хочу сотрудничать

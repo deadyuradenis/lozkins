@@ -1,0 +1,33 @@
+include /core/lib/layout/index.pug
+include /core/ui/nav/index.pug
+
+mixin header(props = { class: [], attrs: {} })
+    -
+        let classes = ['header'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    header(class= classes, data-component="header")&attributes(attrs)
+        .container 
+            .header__inner
+                a.header__logo(href="index.html") 
+                    +icon('logo')
+            
+                nav.nav.header__nav 
+                    a(href="#").nav__link Главная
+                    a(href="#").nav__link Сервисы
+                    a(href="#").nav__link Автор
+                    a(href="#").nav__link Статьи
+                
+                button.header__action(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                    span Заявка
+                    +icon('soc-telegram')
+
+                button.header__next(type="button", data-header="next")
+                    +icon('arrow--down')
+        

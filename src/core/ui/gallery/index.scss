@@ -1,0 +1,20 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/fancybox.scss";
+
+.fancybox{
+    &__container{
+        --fancybox-thumbs-border-radius: 0px;
+        --fancybox-accent-color: #504F4F;
+        --fancybox-bg: rgba(38, 38, 38, 0.8);
+    }
+
+    &__thumb{
+        &::after{
+            transition: opacity 0.25s ease !important;            
+        }
+    }
+}
+
+[data-fancybox]{
+    cursor: pointer;
+}

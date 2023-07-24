@@ -1,0 +1,28 @@
+include /core/lib/layout/index.pug
+
+mixin radioLarge(props = {classes: [], attrs: {}})
+    -
+        let type = props.type ? props.type : 'radio';
+        let checked = props.checked ? props.checked : false;
+        let disabled = props.disabled ? props.disabled : false;
+        let name = props.name ? props.name : 'radio-large';
+        let value = props.value ? props.value : 'value';
+
+        let classes = ['radio-large'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (props.class && Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    label(class= classes, disabled= disabled)&attributes(attrs)
+        input.radio-large__input(type= type, name= name, value= "radio-large", checked= checked)
+
+        .radio-large__content 
+            block
+
+        .radio-large__icon
+            +icon('ok')
+            

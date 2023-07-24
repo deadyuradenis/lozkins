@@ -1,0 +1,44 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+
+.badges {
+    display: flex;
+    
+    &__list{
+        display: flex;
+        flex-shrink: 0;
+
+        // &.is-movable{
+        //     cursor: grab;
+        //     flex-wrap: nowrap;
+        // }
+
+        .badge{
+            &__wrapper{
+                border-radius: 0px;
+                border-right-width: 0px;
+                border-left-width: 0px;
+            }
+
+            &:nth-child(even) .badge__wrapper{
+                border-right-width: 2px;
+                border-left-width: 2px;
+            }
+
+            &:first-child .badge__wrapper{
+                border-radius: 20px 0 0 20px;
+                border-left-width: 2px;
+            }
+
+            &:last-child .badge__wrapper{
+                border-radius: 0 20px 20px 0;
+                border-right-width: 2px;
+            }
+
+
+        }
+
+        
+    }
+}

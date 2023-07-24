@@ -1,0 +1,883 @@
+extends /core/templates/default.pug
+
+block title 
+    title UI KIT
+
+block beforeWorkarea
+    +header()
+
+block workarea
+    section.ui(style="background-image: url('assets/images/bg.svg')")
+        .container.ui__container
+            .ui__header
+                h1.h0 UI KIT 
+  
+            .ui__inner 
+                //- Title
+
+                .ui__block#ui-typography
+                    .ui__row
+                        .ui__col
+                            .h2 Title
+                    
+                    .ui__row
+                        .ui__col
+                            .h1 h1
+                    
+                    .ui__row
+                        .ui__col
+                            .h2 h2
+                    
+                    .ui__row
+                        .ui__col
+                            .h3 h3
+                    
+                    .ui__row
+                        .ui__col
+                            .h4 h4
+                    
+                    .ui__row
+                        .ui__col
+                            .h5 h5
+                
+                //- Text 
+
+                .ui__block 
+                    .ui__row
+                        .ui__col
+                            .h2 Text 
+                    
+                    .ui__row
+                        .ui__col
+                            .text text
+                    
+                    .ui__row
+                        .ui__col
+                            .text-xl text-xl
+                    
+                    .ui__row
+                        .ui__col
+                            .text-lg text-lg
+                    
+                    .ui__row
+                        .ui__col
+                            .text-md text-md
+                    
+                    .ui__row
+                        .ui__col
+                            .text-sm text-sm
+
+                //- List 
+
+                .ui__block 
+                    .ui__row
+                        .ui__col
+                            .h2 List 
+                    
+                    .ui__row
+                        .ui__col
+                            ul.list 
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                        
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                
+                    .ui__row
+                        .ui__col
+                            ol.list 
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                        
+                                li.list__item 
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae soluta cum asperiores deserunt atque culpa quo, neque, ad blanditiis quos quod. Deserunt nulla natus tempore ducimus provident laborum exercitationem.
+                                
+                //- Link
+
+                .ui__block#ui-links
+                    .ui__row    
+                        .ui__col
+                            .h2 Link 
+                    
+                    .ui__row 
+                        .ui__col
+                            a.link(href="#") 
+                                span link
+
+                        .ui__col
+                            a.link(href="#") 
+                                +icon('link')
+                                span link
+        
+                        .ui__col
+                            a.link(href="#") 
+                                +icon('link')
+                                span link
+                                +icon('link')
+    
+                //- Button
+
+                .ui__block#ui-buttons 
+                    .ui__row
+                        .ui__col 
+                            .h3 Button 
+            
+                    .ui__row 
+                        .ui__col 
+                            a.button(href="#")
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--left")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--right")
+                        .ui__col 
+                            a.button.button--light(href="#")
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--up")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--down")
+                        .ui__col 
+                            a.button.button--fill(href="#")
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--right")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--left")
+
+                    .ui__row 
+                        .ui__col 
+                            a.button(href="#" disabled)
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--left")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--right")
+                        .ui__col 
+                            a.button.button--light(href="#" disabled)
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--up")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--down")
+                        .ui__col 
+                            a.button.button--fill(href="#" disabled)
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--right")
+                                span.button__text Button
+                                svg.icon.button__icon
+                                    use(xlink:href="#arrow--left")
+            
+    
+                //- Badge
+
+                .ui__block#ui-badge 
+                    .ui__row
+                        .ui__col 
+                            .h3 Badge
+
+                    .ui__row 
+                        .ui__col 
+                            +badge({
+                                class: [''], 
+                                attrs: {}, 
+                                type: 'link', 
+                                href: '#',
+                                iconStyle: '', 
+                                name: 'badge', 
+                                active: false, 
+                                disabled: false,
+                                content: {text: 'Badge link', icon: 'link'},
+                            })
+
+                        .ui__col 
+                            +badge({
+                                class: [''], 
+                                attrs: {}, 
+                                type: 'button', 
+                                href: '#',
+                                iconStyle: '', 
+                                name: 'badge', 
+                                active: false, 
+                                disabled: false,
+                                content: {text: 'Badge button', icon: 'link'},
+                            })
+
+                        .ui__col 
+                            +badge({
+                                class: [''], 
+                                attrs: {}, 
+                                type: 'radio', 
+                                href: '#',
+                                iconStyle: '', 
+                                name: 'badge', 
+                                active: false, 
+                                disabled: false,
+                                content: {text: 'Badge radio', icon: 'link'},
+                            })
+
+                        .ui__col 
+                            +badge({
+                                class: [''], 
+                                attrs: {}, 
+                                type: 'checkbox', 
+                                href: '',
+                                iconStyle: '', 
+                                name: 'badge', 
+                                active: false, 
+                                disabled: false,
+                                content: {text: 'Badge checkbox', icon: 'link'},
+                            })
+                        
+                //- Badges
+
+                .ui__block#ui-badges 
+                    .ui__row
+                        .ui__col 
+                            .h3 Badges
+
+                    .ui__row 
+                        .ui__col 
+                            +badges({
+                                style: [], 
+                                attrs: {}, 
+                                badgeDataset: {}, 
+                                type: 'link', 
+                                class: '', 
+                                name: 'badges-1', 
+                                scroll: true,
+                                items: [
+                                    {
+                                        style: '', 
+                                        active: true, 
+                                        disabled: false, 
+                                        content: {text: 'Badge link', icon: 'link'}
+                                    }, 
+                                    {
+                                        style: '', 
+                                        active: false, 
+                                        disabled: false, 
+                                        content: {text: 'Badge link', icon: 'link'}
+                                    }
+                                ]
+                            })
+
+                    .ui__row 
+                        .ui__col 
+                            +badges({
+                                style: [], 
+                                attrs: {}, 
+                                badgeDataset: {}, 
+                                type: 'button', 
+                                class: '', 
+                                name: 'badges-1', 
+                                scroll: true,
+                                items: [
+                                    {
+                                        style: '', 
+                                        active: true, 
+                                        disabled: false, 
+                                        content: {text: 'Badge button', icon: 'link'}
+                                    }, 
+                                    {
+                                        style: '', 
+                                        active: false, 
+                                        disabled: false, 
+                                        content: {text: 'Badge button', icon: 'link'}
+                                    }
+                                ]
+                            })
+
+                    .ui__row 
+                        .ui__col 
+                            +badges({
+                                style: [], 
+                                attrs: {}, 
+                                badgeDataset: {}, 
+                                type: 'radio', 
+                                class: '', 
+                                name: 'badges-1', 
+                                scroll: true,
+                                items: [
+                                    {
+                                        style: '', 
+                                        active: true, 
+                                        disabled: false, 
+                                        content: {text: 'Badge radio', icon: 'link'}
+                                    }, 
+                                    {
+                                        style: '', 
+                                        active: false, 
+                                        disabled: false, 
+                                        content: {text: 'Badge radio', icon: 'link'}
+                                    }
+                                ]
+                            })
+
+                    .ui__row 
+                        .ui__col 
+                            +badges({
+                                style: [], 
+                                attrs: {}, 
+                                badgeDataset: {}, 
+                                type: 'checkbox', 
+                                class: '', 
+                                name: 'badges-1', 
+                                scroll: true,
+                                items: [
+                                    {
+                                        style: '', 
+                                        active: true, 
+                                        disabled: false, 
+                                        content: {text: 'Badge checkbox', icon: 'link'}
+                                    }, 
+                                    {
+                                        style: '', 
+                                        active: false, 
+                                        disabled: false, 
+                                        content: {text: 'Badge checkbox', icon: 'link'}
+                                    }
+                                ]
+                            })
+
+                //- Inputs
+
+                .ui__block#ui-inputs 
+                    .ui__row
+                        .ui__col 
+                            .h3 Input 
+
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: '',
+                                required: false,
+                            })
+                        
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'req',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: '',
+                                required: true,
+                            })
+                        
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'phone',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: 'phone',
+                                required: true,
+                            })
+                        
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'mail',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: 'mail',
+                                required: true,
+                            })
+                        
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'letters',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: 'letters',
+                                required: true,
+                            })
+                        
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'numbers',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                                mask: 'numbers',
+                                required: false,
+                            })
+                        
+    
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+                                +icon('personal').input__icon.input__icon--left
+                                +icon('personal').input__icon.input__icon--right
+                        
+                        .ui__col 
+                            +input({
+                                class: ['input--md'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+                                +icon('personal').input__icon.input__icon--left
+                                +icon('personal').input__icon.input__icon--right
+                        
+                        .ui__col 
+                            +input({
+                                class: ['input--lg'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+                                +icon('personal').input__icon.input__icon--left
+                                +icon('personal').input__icon.input__icon--right
+
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: ['input--light'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: 'text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+                        .ui__col 
+                            +input({
+                                class: ['input--light', 'input--lg'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: 'text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: ['is-filled'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: 'text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-success'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: 'text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-loading'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: 'text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-error'],
+                                attrs: {},
+                                type: 'text',
+                                name: 'input',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                //- Textarea
+
+                .ui__block#ui-inputs 
+                    .ui__row
+                        .ui__col 
+                            .h3 Textarea 
+    
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: [''],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+                                +icon('personal').input__icon.input__icon--left
+                                +icon('personal').input__icon.input__icon--right
+
+                        .ui__col 
+                            +input({
+                                class: ['input--md'],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                    .ui__row 
+                        .ui__col 
+                            +input({
+                                class: ['is-filled'],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: 'textarea text',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-success'],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-loading'],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                        .ui__col 
+                            +input({
+                                class: ['is-error'],
+                                attrs: {},
+                                type: 'textarea',
+                                name: 'textarea',
+                                placeholder: 'placeholder',
+                                value: '',
+                                disabled: false,
+                                inputDataset: {},
+                                status: '',
+                            })
+
+                //- Select
+
+                //- .ui__block#ui-selects 
+                //-     .ui__row
+                //-         .ui__col 
+                //-             .h3 Selects
+    
+                //-     .ui__row 
+                //-         .ui__col 
+                //-             +select({
+                //-                 class: '', 
+                //-                 style: '', 
+                //-                 name: 'select-1', 
+                //-                 multiple: false, 
+                //-                 active: 'none', 
+                //-                 icon: false, 
+                //-                 placeholder: 'placeholder', 
+                //-                 items: ['op1', 'op13', 'op15', 'option', 'option', 'option', 'option']
+                //-             })
+                        
+                //-         .ui__col 
+                //-             +select({
+                //-                 class: '', 
+                //-                 style: 'md', 
+                //-                 name: 'select-2', 
+                //-                 multiple: true, 
+                //-                 active: 'none', 
+                //-                 icon: false, 
+                //-                 placeholder: 'placeholder', 
+                //-                 items: ['op2', 'op11', 'op14', 'option', 'option', 'option', 'option']
+                //-             })
+                        
+                //-         .ui__col 
+                //-             +select({
+                //-                 class: '', 
+                //-                 style: 'round', 
+                //-                 name: 'select-1', 
+                //-                 multiple: false, 
+                //-                 active: 'none', 
+                //-                 icon: 'trash', 
+                //-                 placeholder: 'placeholder', 
+                //-                 items: ['op1', 'op13', 'op15', 'option', 'option', 'option', 'option']
+                //-             })
+                        
+                //-         .ui__col 
+                //-             +select({
+                //-                 class: '', 
+                //-                 style: 'round',
+                //-                 name: 'select-2',
+                //-                     multiple: true, 
+                //-                 active: 'none', 
+                //-                 icon: false, 
+                //-                 placeholder: 'placeholder', 
+                //-                 items: ['op2', 'op11', 'op14', 'option', 'option', 'option', 'option']
+                //-             })
+                        
+                //- Checkbox
+
+                .ui__block#ui-checkbox 
+                    .ui__row
+                        .ui__col 
+                            .h3 Checkbox
+                    
+                    .ui__row
+                        .ui__col 
+                            +checkbox({
+                                class: [''],
+                                attrs: {
+                                    id: 'checkbox-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: false,
+                                disabled: false,
+                                name: 'checkboxes',
+                                value: 'checkbox value',
+                            })
+                                p content
+                                +icon('link')
+
+                        .ui__col 
+                            +checkbox({
+                                class: [''],
+                                attrs: {
+                                    id: 'checkbox-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: true,
+                                disabled: false,
+                                name: 'checkboxes',
+                                value: 'checkbox value',
+                            })
+                                p content
+                                +icon('link')
+
+                        .ui__col 
+                            +checkbox({
+                                class: [''],
+                                attrs: {
+                                    id: 'checkbox-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: false,
+                                disabled: true,
+                                name: 'checkboxes',
+                                value: 'checkbox value',
+                            })
+                                p content
+                                +icon('link')
+
+                //- Radio
+
+                .ui__block#ui-radio 
+                    .ui__row
+                        .ui__col 
+                            .h3 Radio
+                    
+                    .ui__row
+                        .ui__col 
+                            +radio({
+                                class: [''],
+                                attrs: {
+                                    id: 'radio-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: false,
+                                disabled: false,
+                                name: 'radios',
+                                value: 'radio value',
+                            })
+                                p content
+                                +icon('link')
+
+                        .ui__col 
+                            +radio({
+                                class: [''],
+                                attrs: {
+                                    id: 'radio-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: true,
+                                disabled: false,
+                                name: 'radios',
+                                value: 'radio value',
+                            })
+                                p content
+                                +icon('link')
+
+                        .ui__col 
+                            +radio({
+                                class: [''],
+                                attrs: {
+                                    id: 'radio-id',
+                                    'data-custom': 'true'
+                                },
+                                checked: false,
+                                disabled: true,
+                                name: 'radios',
+                                value: 'radio value',
+                            })
+                                p content
+                                +icon('link')
+
+                //- Modal
+
+                .ui__block#ui-modals 
+                    .ui__row
+                        .ui__col 
+                            .h3 Modal
+                            
+                    .ui__row 
+                        .ui__col 
+                            button.button(type="button" data-bs-toggle="modal" data-bs-target="#m-callback")
+                                span.button__text Modal "Callback"
+        
+                //- Breadcrumbs
+
+                .ui__block#ui-breadcrumbs 
+                    .ui__row
+                        .ui__col 
+                            .h3 Breadcrumbs
+                            
+                    .ui__row 
+                        .ui__col 
+                            +breadcrumbs({list: ['Главная', 'Страница', 'Страница']})
+            
+                //- Slider
+                
+                .ui__block#ui-slider 
+                    .ui__row
+                        .ui__col 
+                            .h3 Slider
+                            
+                    .ui__row 
+                        .ui__col
+                            .slider(data-component="slider")
+                                .swiper.slider__inner(data-slider="inner")
+                                    .swiper-wrapper.slider__wrapper
+                                        .swiper-slide.slider__slide
+                                            p.text-lg Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius fugiat, suscipit magnam illum nisi architecto quo dolores ad. Saepe incidunt vitae commodi voluptate repudiandae quaerat laboriosam aliquam temporibus soluta hic?
+                                            
+                                        .swiper-slide.slider__slide
+                                            p.text-lg Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius fugiat, suscipit magnam illum nisi architecto quo dolores ad. Saepe incidunt vitae commodi voluptate repudiandae quaerat laboriosam aliquam temporibus soluta hic?
+                                            
+                                    .slider__navigation
+                                        .swiper-button-prev.slider__button.slider__button--prev(data-slider-button="prev")
+                                            svg.icon.slider__button-icon
+                                                use(xlink:href="#arrow--left")
+                                        .swiper-button-next.slider__button.slider__button--next(data-slider-button="next")
+                                            svg.icon.slider__button-icon
+                                                use(xlink:href="#arrow--right")
+                                .swiper-pagination.slider__pagination
+
+            
+block afterWorkarea
+    +footer()
+    +modalCallback()

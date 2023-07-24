@@ -1,0 +1,54 @@
+include /core/lib/layout/index.pug
+
+mixin cardProduct(props = { class: [], attrs: {} })
+    -
+        let link = props.link ? props.link : '#';
+        let img = props.img ? props.img : 'assets/images/cards/product/1.png';
+        let title = props.title ? props.title : 'Product title';
+        let subtitle = props.subtitle ? props.subtitle : '';
+        let price = props.price ? props.price : '0 ₽';
+        let priceOld = props.priceOld ? props.priceOld : '1 ₽';
+        let classes = ['c-product'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    div(class= classes,)&attributes(attrs)
+        .c-product__actions 
+            button.c-product__action(type="button")
+                +icon('favorite')
+            button.c-product__action(type="button", data-fancybox="product", data-src="https://www.youtube.com/watch?v=jfKfPfyJRdk")
+                +icon('play')
+            
+        a.c-product__image-wrapper(href= link)
+            img(src=img alt="")
+        
+        .c-product__info
+            a.c-product__title(href= link)
+                h3!= title 
+                if subtitle 
+                    span= ` / ${subtitle}`
+
+            .c-product__prices 
+                span.c-product__price= price
+                if priceOld
+                    span.c-product__price-old= priceOld
+
+        button.button.c-product__button(type="button")
+            span.button__text В корзину
+
+
+//- +cardProduct({
+//-     class: [''],
+//-     attrs: {},
+//-     link: '#',
+//-     img: 'assets/images/cards/product/1.png',
+//-     title: 'title',
+//-     subtitle: 'subtitle',
+//-     price: '4 291 ₽',
+//-     priceOld: '5 291 ₽',
+//- })

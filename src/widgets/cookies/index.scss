@@ -1,0 +1,78 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.cookies {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    padding-right: inherit;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: visibility 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+
+    .container{
+        @media only screen and (max-width: $bp-md) {
+            padding: 0;
+        }
+    }
+
+    &.is-show{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &__inner {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 98px;
+        border: 1px solid #AFBECB;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 23px 25px;
+        color: $dark;
+        
+        @media only screen and (max-width: $bp-md) {
+            min-height: 88px;
+            padding: 20px;
+        }
+    }
+
+    &__text {
+        font-family: 'CenturyGothic';
+        margin-right: 20px;
+
+        @media only screen and (max-width: $bp-md) {
+            font-size: 12px;
+            background-image: linear-gradient();
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            margin-right: 5px;
+        }
+    }
+
+    &__button {
+        height: 52px;
+        flex-shrink: 0;
+        padding: 0 20px !important;
+        font-size: 18px;
+        line-height: 22px;
+
+        @media only screen and (max-width: $bp-md) {
+            font-size: 12px;
+            line-height: 15px;
+            height: 45px;
+        }
+    }
+}

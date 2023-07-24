@@ -1,0 +1,75 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.checkbox {
+    cursor: pointer;
+    display: flex;
+
+    &__input {
+        display: none;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__icon-wrapper {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        background-color: transparent;
+        border-radius: 2px;
+        fill: #fff;
+        border: 2px solid $blue-light;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+        margin: 3px;
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        fill: #fff;
+        opacity: 0;
+        will-change: transform;
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.05s;
+    }
+
+    &__content {
+        display: flex;
+        margin: auto 0 auto 10px;
+        gap: 10px 5px;
+    }
+
+
+    &[disabled]{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &__input:checked + &__wrapper &__icon-wrapper{
+        border-color: $blue-light;
+        background-color: $blue-light;
+    }
+
+    &__input:checked + &__wrapper &__icon{
+        opacity: 1;
+    }
+
+    &:hover &__icon-wrapper{
+        border-color: $blue;
+    }
+
+    &:hover &__input:checked + &__wrapper &__icon-wrapper{
+        border-color: $blue;
+        background-color: $blue;
+    }
+
+    &.is-error &__icon-wrapper{
+        border-color: $red;
+    }
+}

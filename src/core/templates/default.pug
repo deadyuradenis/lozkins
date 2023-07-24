@@ -1,0 +1,54 @@
+include /core/lib/layout/index.pug
+
+include /widgets/header/index.pug
+include /widgets/footer/index.pug
+include /widgets/preloader/index.pug
+
+//- Ui
+include /core/ui/checkbox/index.pug
+include /core/ui/radio/index.pug
+include /core/ui/radio-large/index.pug
+include /core/ui/input/index.pug
+include /core/ui/badge/index.pug
+
+include /core/ui/badges/index.pug
+include /core/ui/slider/index.pug
+
+//- Blocks
+
+include /widgets/breadcrumbs/index.pug
+
+//- Modals
+include /widgets/modals/callback/index.pug
+include /widgets/modals/info/index.pug
+
+//- Cards
+//- include /widgets/c-product/index.pug
+
+//- Sections
+include /widgets/s-intro/index.pug
+
+doctype html
+html.layout(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon", href="assets/images/favicon.svg", type="image/svg+xml")
+        link(rel="stylesheet", href="css/index.css")
+        +preloaderStyles()
+        block title
+
+    body.body.layout__body
+        block beforeWorkarea
+
+        main.main.layout__main
+            block workarea
+
+        block afterWorkarea
+        +modalCallback()
+        +modalInfo()
+            
+        +preloader()
+        +preloaderScripts()
+        script(src="js/index.js")

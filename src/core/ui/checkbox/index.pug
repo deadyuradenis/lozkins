@@ -1,0 +1,27 @@
+include /core/lib/layout/index.pug
+
+mixin checkbox(props = {class: [], attrs: {}})
+    -
+        let checked = props.checked ? props.checked : false;
+        let disabled = props.disabled ? props.disabled : false;
+        let name = props.name ? props.name : 'checkbox';
+        let value = props.value ? props.value : 'value';
+
+        let classes = ['checkbox'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    label(class= classes, disabled= disabled)&attributes(attrs)
+        input.checkbox__input(type= "checkbox", name= name, value= "checkbox", checked= checked)
+
+        .checkbox__wrapper 
+            .checkbox__icon-wrapper 
+                +icon('ok')(class="checkbox__icon")
+            if block 
+                .checkbox__content
+                    block

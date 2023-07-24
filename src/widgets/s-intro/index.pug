@@ -1,0 +1,17 @@
+include /core/lib/layout/index.pug
+
+mixin sectionIntro(props = { class: [], attrs: {} })
+    -
+        let classes = ['s-intro', 'section'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    section(class= classes,)&attributes(attrs)
+        .s-intro__inner 
+            .container 
+                

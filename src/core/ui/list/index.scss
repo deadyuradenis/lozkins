@@ -1,0 +1,68 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.list {
+    display: block;
+    padding: 0 0 0 10px;
+    margin: 0 0 10px;
+
+    @media only screen and (max-width: $bp-lg) {
+        padding-left: 7px;
+    }
+  
+    &__item {
+        position: relative;
+        display: block;
+        margin-bottom: 10px;
+        padding-left: 14px;
+        min-height: 24px;
+
+        @media only screen and (max-width: $bp-lg) {
+            padding-left: 11px;
+            min-height: 18px;
+        }
+    
+        &::before{
+            content: "";
+            display: flex;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            flex-shrink: 0;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $dark;
+
+            @media only screen and (max-width: $bp-lg) {
+                top: 7px;
+            }
+        }
+    
+        p{
+            margin-bottom: 10px;
+        }
+
+        &:last-child,
+        &>*:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &:is(ol){
+        padding: 0 0 0 24px;
+
+        @media only screen and (max-width: $bp-lg) {
+            padding-left: 18px;
+        }
+
+        li{
+            display: list-item;
+            padding-left: 0;
+
+            &::before{
+                content: none;
+            }
+        }
+    }
+}

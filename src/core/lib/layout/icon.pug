@@ -1,0 +1,6 @@
+mixin icon(id)
+  svg(class="icon", aria-hidden=true, role="presentation")&attributes(attributes)
+    use(xlink:href=`/assets/sprite/clean/sprite.svg#${id}`)
+    //- use(xlink:href=require(path))
+
+//- +icon('id')

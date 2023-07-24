@@ -1,0 +1,128 @@
+include /core/lib/layout/index.pug
+
+include /core/ui/modal/index.pug
+
+mixin modalCallback(props = {})
+    +modal({class: [''], id: 'm-callback',})
+        .modal__menu 
+            button.modal-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                +icon('cancel')
+
+        .modal__bg
+            picture.modal__bg-image 
+                source(media="(max-width: 833px)" srcset="assets/images/modals/callback--md.svg")
+                img(src="assets/images/modals/callback.svg", alt="")
+            
+        .modal__main
+            .modal__header 
+                h2.h2.modal__title Заявка
+
+            .modal__body 
+                .modal-form.modal__form 
+                    form(action="#") 
+                        .modal-form__body 
+                            .modal-form__group.modal-form__group--md
+                            
+                                +radioLarge({
+                                    class: ['modal-form__radio'],
+                                    attrs: {},
+                                    type: 'radio',
+                                    checked: true,
+                                    disabled: false,
+                                    name: 'type',
+                                    value: 'education',
+                                })
+                                    +icon('education')
+                                    span Обчение
+                                    
+                                +radioLarge({
+                                    class: ['modal-form__radio'],
+                                    attrs: {},
+                                    type: 'radio',
+                                    checked: false,
+                                    disabled: false,
+                                    name: 'type',
+                                    value: 'consulting',
+                                })
+                                    +icon('consulting')
+                                    span Консалтинг
+
+                                +radioLarge({
+                                    class: ['modal-form__radio'],
+                                    attrs: {},
+                                    type: 'radio',
+                                    checked: false,
+                                    disabled: false,
+                                    name: 'type',
+                                    value: 'development',
+                                })
+                                    +icon('development')
+                                    span Разработка
+
+                                +radioLarge({
+                                    class: ['modal-form__radio'],
+                                    attrs: {},
+                                    type: 'radio',
+                                    checked: false,
+                                    disabled: false,
+                                    name: 'type',
+                                    value: 'other',
+                                })
+                                    +icon('other')
+                                    span Другое
+                            
+                            .modal-form__group 
+                                +input({
+                                    class: ['modal-form__input'],
+                                    attrs: {},
+                                    type: 'text',
+                                    name: 'Name',
+                                    placeholder: 'Фамилия Имя Отчество',
+                                    value: '',
+                                    disabled: false,
+                                    inputDataset: {},
+                                    status: '',
+                                    mask: 'letters',
+                                    required: false,
+                                })
+                                    +icon('personal').input__icon.input__icon--left
+                    
+                                +input({
+                                    class: ['modal-form__input'],
+                                    attrs: {},
+                                    type: 'text',
+                                    name: 'email',
+                                    placeholder: 'Email',
+                                    value: '',
+                                    disabled: false,
+                                    inputDataset: {},
+                                    status: '',
+                                    mask: 'mail',
+                                    required: false,
+                                })
+                                    +icon('mail').input__icon.input__icon--left
+                    
+                                +input({
+                                    class: ['modal-form__input'],
+                                    attrs: {},
+                                    type: 'textarea',
+                                    name: 'message',
+                                    placeholder: 'Добавьте комментарий',
+                                    value: '',
+                                    disabled: false,
+                                    inputDataset: {},
+                                    status: '',
+                                    mask: 'letters',
+                                    required: false,
+                                })
+                                    +icon('message').input__icon.input__icon--left
+                    
+                            .modal-form__group 
+                                p.modal-form__policy Отправляя свои персональные данные, вы соглашаетесь с #[a(href="#") политикой обработки персональных данных]
+
+                        .modal-form__footer 
+                            button.button.button--fill.button--lg.modal-form__submit(type="submit")
+                                span.button__text Отправить
+                            
+
+                
