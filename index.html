@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="layout" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/index.css">
+  
+  <style type="text/css">
+    .preloader {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+    }
+
+    .preloader span {
+      width: 100%;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      background-color: #1A1A1A;
+      -webkit-transition: opacity 0.4s ease;
+      -o-transition: opacity 0.4s ease;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+    }
+
+    .preloader strong {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      color: #2F80ED;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 100%;
+      -webkit-transition: opacity 0.5s ease;
+      -o-transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease;
+    }
+
+    .preloader.is-loaded {
+      pointer-events: none;
+    }
+
+    .preloader.is-loaded strong {
+      opacity: 0;
+    }
+
+    .preloader.is-loaded span {
+      opacity: 0;
+      -webkit-transition-delay: 0.2s;
+      -o-transition-delay: 0.2s;
+      transition-delay: 0.2s;
+    }
+
+    @media only screen and (max-width: 1023px) {
+      .preloader strong {
+        font-size: 28px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .preloader strong {
+        font-size: 24px;
+      }
+    }
+  </style>
+  <title>Map</title>
+</head>
+
+<body class="body layout__body">
+  <main class="main layout__main">
+    <div class="sitemap">
+      <div class="sitemap__container">
+        <div class="sitemap__title">Карта сайта</div>
+        <div class="sitemap__nav"><a class="sitemap__link" href="ui-kit.html">Ui Kit</a><a class="sitemap__link" href="main.html">Главная</a></div>
+      </div>
+    </div>
+  </main>
+  <div class="modal fade" id="m-callback" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal__menu"> <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+              <use xlink:href="/assets/sprite/clean/sprite.svg#cancel"></use>
+            </svg></button></div>
+        <div class="modal__bg">
+          <picture class="modal__bg-image">
+            <source media="(max-width: 833px)" srcset="assets/images/modals/callback--md.svg" /><img src="assets/images/modals/callback.svg" alt="" />
+          </picture>
+        </div>
+        <div class="modal__main">
+          <div class="modal__header">
+            <h2 class="h2 modal__title">Заявка</h2>
+          </div>
+          <div class="modal__body">
+            <div class="modal-form modal__form">
+              <form action="#">
+                <div class="modal-form__body">
+                  <div class="modal-form__group modal-form__group--md"><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" checked="checked" />
+                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#education"></use>
+                        </svg><span>Обчение</span></div>
+                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                        </svg></div>
+                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
+                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#consulting"></use>
+                        </svg><span>Консалтинг</span></div>
+                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                        </svg></div>
+                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
+                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#development"></use>
+                        </svg><span>Разработка</span></div>
+                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                        </svg></div>
+                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
+                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#other"></use>
+                        </svg><span>Другое</span></div>
+                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                        </svg></div>
+                    </label></div>
+                  <div class="modal-form__group">
+                    <div class="input modal-form__input" data-component="input"><label class="input__wrapper"> <input class="input__native" type="text" data-input="native" value="" placeholder="Фамилия Имя Отчество" data-mask="letters"></input><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#personal"></use>
+                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
+                    <div class="input modal-form__input" data-component="input"><label class="input__wrapper"> <input class="input__native" type="text" data-input="native" value="" placeholder="Email" data-mask="mail"></input><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#mail"></use>
+                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
+                    <div class="input modal-form__input input--textarea" data-component="input"><label class="input__wrapper"> <textarea class="input__native" type="text" data-input="native" value="" placeholder="Добавьте комментарий" data-mask="letters"></textarea><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
+                          <use xlink:href="/assets/sprite/clean/sprite.svg#message"></use>
+                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
+                  </div>
+                  <div class="modal-form__group">
+                    <p class="modal-form__policy">Отправляя свои персональные данные, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></p>
+                  </div>
+                </div>
+                <div class="modal-form__footer"> <button class="button button--fill button--lg modal-form__submit" type="submit"><span class="button__text">Отправить</span></button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal--info" id="m-info" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal__menu"> <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
+              <use xlink:href="/assets/sprite/clean/sprite.svg#cancel"></use>
+            </svg></button></div>
+        <div class="modal__bg">
+          <picture class="modal__bg-image"> <img src="assets/images/modals/info.jpg" alt="" /></picture>
+        </div>
+        <div class="modal__main">
+          <div class="modal__body">
+            <div class="modal__list">
+              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                  <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                </svg>
+                <div class="modal__list-content">
+                  <p>Кандидат физ.-мат. наук, специальность Математическое моделирование, численные методы и комплексы программ;</p>
+                </div>
+              </div>
+              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                  <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                </svg>
+                <div class="modal__list-content">
+                  <p>Опыт разработки математических моделей и оптимизационных решений – 9 лет;</p>
+                </div>
+              </div>
+              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                  <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                </svg>
+                <div class="modal__list-content">
+                  <p>В найме успешно запустил крупные оптимизационные решения для Huawei, Деловые Линии, Газпром Нефть и других компаний;</p>
+                </div>
+              </div>
+              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
+                  <use xlink:href="/assets/sprite/clean/sprite.svg#ok"></use>
+                </svg>
+                <div class="modal__list-content">
+                  <p>Наличие экспертизы оптимизации транспортной логистики, цепочек поставок, производственного планирования и маршрутизации.</p>
+                </div>
+              </div>
+            </div>
+            <div class="modal__actions"> <button class="button button--lg modal__action" type="button" data-bs-toggle="modal" data-bs-target="#m-info"><span class="button__text">Хочу сотрудничать</span></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="preloader" data-preloader="component"><span></span></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.querySelector('[data-preloader="component"]')) {
+        const preloader = document.querySelector('[data-preloader="component"]');
+        const preloaderPercentage = preloader.querySelector('[data-preloader="percentage"]');
+        const images = document.querySelectorAll('img');
+        const imagesCount = images.length;
+        const body = document.querySelector('body');
+        const percent = 100 / imagesCount;
+        let progress = 0;
+        let loadedImg = 0;
+
+        const imgLoad = () => {
+          progress += percent;
+          loadedImg++;
+          unlock(progress, loadedImg);
+        };
+
+        const unlock = (progress, loadedImg) => {
+          //- preloaderPercentage.innerHTML = Math.round(progress) + ' %';
+
+          if (progress >= 100 || loadedImg === imagesCount) {
+            setTimeout(() => {
+              preloader.classList.add('is-loaded');
+            }, 250);
+
+            setTimeout(() => {
+              body.classList.add('is-unlock');
+            }, 500);
+          }
+        };
+
+        if (imagesCount !== 0) {
+          images.forEach(img => {
+            if (img.complete) {
+              imgLoad();
+            } else {
+              img.onload = () => {
+                imgLoad();
+              };
+
+              img.onerror = () => {
+                imgLoad();
+              };
+            }
+          });
+        } else {
+          progress = 100;
+          loadedImg = 0;
+
+          unlock(progress, loadedImg);
+        }
+      }
+    })
+  </script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
