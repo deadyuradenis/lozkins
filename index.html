@@ -1,273 +1,549 @@
 <!DOCTYPE html>
 <html class="layout" lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="css/index.css">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/index.css">
-  
-  <style type="text/css">
-    .preloader {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 20;
-    }
-
-    .preloader span {
-      width: 100%;
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      background-color: #1A1A1A;
-      -webkit-transition: opacity 0.4s ease;
-      -o-transition: opacity 0.4s ease;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-    }
-
-    .preloader strong {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-      color: #2F80ED;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 100%;
-      -webkit-transition: opacity 0.5s ease;
-      -o-transition: opacity 0.5s ease;
-      transition: opacity 0.5s ease;
-    }
-
-    .preloader.is-loaded {
-      pointer-events: none;
-    }
-
-    .preloader.is-loaded strong {
-      opacity: 0;
-    }
-
-    .preloader.is-loaded span {
-      opacity: 0;
-      -webkit-transition-delay: 0.2s;
-      -o-transition-delay: 0.2s;
-      transition-delay: 0.2s;
-    }
-
-    @media only screen and (max-width: 1023px) {
-      .preloader strong {
-        font-size: 28px;
-      }
-    }
-
-    @media only screen and (max-width: 767px) {
-      .preloader strong {
-        font-size: 24px;
-      }
-    }
-  </style>
-  <title>Map</title>
-</head>
-
-<body class="body layout__body">
-  <main class="main layout__main">
-    <div class="sitemap">
-      <div class="sitemap__container">
-        <div class="sitemap__title">Карта сайта</div>
-        <div class="sitemap__nav"><a class="sitemap__link" href="ui-kit.html">Ui Kit</a><a class="sitemap__link" href="main.html">Главная</a></div>
-      </div>
-    </div>
-  </main>
-  <div class="modal fade" id="m-callback" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal__menu"> <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-              <use xlink:href="./assets/sprite/clean/sprite.svg#cancel"></use>
-            </svg></button></div>
-        <div class="modal__bg">
-          <picture class="modal__bg-image">
-            <source media="(max-width: 833px)" srcset="assets/images/modals/callback--md.svg" /><img src="assets/images/modals/callback.svg" alt="" />
-          </picture>
-        </div>
-        <div class="modal__main">
-          <div class="modal__header">
-            <h2 class="h2 modal__title">Заявка</h2>
-          </div>
-          <div class="modal__body">
-            <div class="modal-form modal__form">
-              <form action="#">
-                <div class="modal-form__body">
-                  <div class="modal-form__group modal-form__group--md"><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" checked="checked" />
-                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#education"></use>
-                        </svg><span>Обчение</span></div>
-                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                        </svg></div>
-                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
-                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#consulting"></use>
-                        </svg><span>Консалтинг</span></div>
-                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                        </svg></div>
-                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
-                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#development"></use>
-                        </svg><span>Разработка</span></div>
-                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                        </svg></div>
-                    </label><label class="radio-large modal-form__radio"><input class="radio-large__input" type="radio" name="type" value="radio-large" />
-                      <div class="radio-large__content"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#other"></use>
-                        </svg><span>Другое</span></div>
-                      <div class="radio-large__icon"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                        </svg></div>
-                    </label></div>
-                  <div class="modal-form__group">
-                    <div class="input modal-form__input" data-component="input"><label class="input__wrapper"> <input class="input__native" type="text" data-input="native" value="" placeholder="Фамилия Имя Отчество" data-mask="letters"></input><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#personal"></use>
-                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
-                    <div class="input modal-form__input" data-component="input"><label class="input__wrapper"> <input class="input__native" type="text" data-input="native" value="" placeholder="Email" data-mask="mail"></input><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#mail"></use>
-                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
-                    <div class="input modal-form__input input--textarea" data-component="input"><label class="input__wrapper"> <textarea class="input__native" type="text" data-input="native" value="" placeholder="Добавьте комментарий" data-mask="letters"></textarea><svg class="icon input__icon input__icon--left" aria-hidden="aria-hidden" role="presentation">
-                          <use xlink:href="./assets/sprite/clean/sprite.svg#message"></use>
-                        </svg></label><span class="input__status">Обязательно для заполнения</span></div>
-                  </div>
-                  <div class="modal-form__group">
-                    <p class="modal-form__policy">Отправляя свои персональные данные, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></p>
-                  </div>
-                </div>
-                <div class="modal-form__footer"> <button class="button button--fill button--lg modal-form__submit" type="submit"><span class="button__text">Отправить</span></button></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade modal--info" id="m-info" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal__menu"> <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close"><svg class="icon" aria-hidden="aria-hidden" role="presentation">
-              <use xlink:href="./assets/sprite/clean/sprite.svg#cancel"></use>
-            </svg></button></div>
-        <div class="modal__bg">
-          <picture class="modal__bg-image"> <img src="assets/images/modals/info.jpg" alt="" /></picture>
-        </div>
-        <div class="modal__main">
-          <div class="modal__body">
-            <div class="modal__list">
-              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                  <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                </svg>
-                <div class="modal__list-content">
-                  <p>Кандидат физ.-мат. наук, специальность Математическое моделирование, численные методы и комплексы программ;</p>
-                </div>
-              </div>
-              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                  <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                </svg>
-                <div class="modal__list-content">
-                  <p>Опыт разработки математических моделей и оптимизационных решений – 9 лет;</p>
-                </div>
-              </div>
-              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                  <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                </svg>
-                <div class="modal__list-content">
-                  <p>В найме успешно запустил крупные оптимизационные решения для Huawei, Деловые Линии, Газпром Нефть и других компаний;</p>
-                </div>
-              </div>
-              <div class="modal__list-item"> <svg class="icon" aria-hidden="aria-hidden" role="presentation">
-                  <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
-                </svg>
-                <div class="modal__list-content">
-                  <p>Наличие экспертизы оптимизации транспортной логистики, цепочек поставок, производственного планирования и маршрутизации.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal__actions"> <button class="button button--lg modal__action" type="button" data-bs-toggle="modal" data-bs-target="#m-info"><span class="button__text">Хочу сотрудничать</span></button></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="preloader" data-preloader="component"><span></span></div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (document.querySelector('[data-preloader="component"]')) {
-        const preloader = document.querySelector('[data-preloader="component"]');
-        const preloaderPercentage = preloader.querySelector('[data-preloader="percentage"]');
-        const images = document.querySelectorAll('img');
-        const imagesCount = images.length;
-        const body = document.querySelector('body');
-        const percent = 100 / imagesCount;
-        let progress = 0;
-        let loadedImg = 0;
-
-        const imgLoad = () => {
-          progress += percent;
-          loadedImg++;
-          unlock(progress, loadedImg);
-        };
-
-        const unlock = (progress, loadedImg) => {
-          //- preloaderPercentage.innerHTML = Math.round(progress) + ' %';
-
-          if (progress >= 100 || loadedImg === imagesCount) {
-            setTimeout(() => {
-              preloader.classList.add('is-loaded');
-            }, 250);
-
-            setTimeout(() => {
-              body.classList.add('is-unlock');
-            }, 500);
-          }
-        };
-
-        if (imagesCount !== 0) {
-          images.forEach(img => {
-            if (img.complete) {
-              imgLoad();
-            } else {
-              img.onload = () => {
-                imgLoad();
-              };
-
-              img.onerror = () => {
-                imgLoad();
-              };
+        <style type="text/css">
+            .preloader {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 20;
             }
-          });
-        } else {
-          progress = 100;
-          loadedImg = 0;
+            
+            .preloader span {
+                width: 100%;
+                -webkit-box-flex: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                background-color: #1A1A1A;
+                -webkit-transition: opacity 0.4s ease;
+                -o-transition: opacity 0.4s ease;
+                transition: opacity 0.4s ease;
+                opacity: 1;
+            }
+            
+            .preloader strong {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                color: #2F80ED;
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 100%;
+                -webkit-transition: opacity 0.5s ease;
+                -o-transition: opacity 0.5s ease;
+                transition: opacity 0.5s ease;
+            }
+            
+            .preloader.is-loaded {
+                pointer-events: none;
+            }
+            
+            .preloader.is-loaded strong {
+                opacity: 0;
+            }
+            
+            .preloader.is-loaded span {
+                opacity: 0;
+                -webkit-transition-delay: 0.2s;
+                -o-transition-delay: 0.2s;
+                transition-delay: 0.2s;
+            }
+            
+            @media only screen and (max-width: 1023px) {
+                .preloader strong {
+                    font-size: 28px;
+                }
+            }
+            
+            @media only screen and (max-width: 767px) {
+                .preloader strong {
+                    font-size: 24px;
+                }
+            }
+        </style>
+        <title>Главная</title>
+    </head>
+    <body class="body layout__body">
+        <div class="layout__main-body">
+            <section class="section s-intro" id="intro">
+                <div class="container">
+                    <div class="s-intro__inner">
+                        <div class="s-intro__main">
+                            <div class="s-intro__logo-wrapper"><img class="s-intro__logo" src="assets/images/logo/logo-lg.svg" alt="">
+                                <div class="s-intro__logo-line"> </div>
+                            </div>
+                            <h1 class="h1 s-intro__title">Консалтинг, разработка <br> и обучение</h1>
+                            <p class="s-intro__subtitle">Математическая оптимизация и моделирование для бизнеса</p>
+                            <button class="button s-intro__button" type="button" data-bs-toggle="modal" data-bs-target="#m-callback"><span class="button__text">Отправить заявку</span></button>
+                        </div>
+                        <picture class="s-intro__image"><img src="assets/images/intro/picture.png" srcset="assets/images/intro/picture--retina.png 2x" alt=""></picture>
+                    </div>
+                </div>
+            </section>
+            <header class="header" data-component="header">
+                <div class="container">
+                    <div class="header__inner">
+                        <a class="header__logo" href="index.html">
+                            <svg class="icon" role="presentation">
+                                <use xlink:href="./assets/sprite/clean/sprite.svg#logo"></use>
+                            </svg>
+                        </a>
+                        <div class="header__nav">
+                            <nav class="nav"><a class="nav__link" href="#intro">Главная</a><a class="nav__link" href="#services">Сервисы</a><a class="nav__link" href="#about">Автор</a><a class="nav__link" href="#articles">Статьи</a></nav>
+                        </div>
+                        <button class="header__action" type="button" data-bs-toggle="modal" data-bs-target="#m-callback"><span>Заявка</span>
+                            <svg class="icon" role="presentation">
+                                <use xlink:href="./assets/sprite/clean/sprite.svg#soc-telegram"></use>
+                            </svg>
+                        </button>
+                        <a class="header__next" href="#specialization">
+                            <svg class="icon" role="presentation">
+                                <use xlink:href="./assets/sprite/clean/sprite.svg#arrow--down"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <main class="layout__main">
+                <section class="section s-specialization" id="specialization">
+                    <div class="container s-specialization__container">
+                        <div class="s-specialization__inner">
+                            <div class="s-specialization__header">
+                                <h2 class="h3 s-specialization__title">Наша специализация</h2> </div>
+                            <div class="s-specialization__body">
+                                <picture class="s-specialization__image">
+                                    <source media="(max-width: 834px)" srcset="assets/images/specialization/image--md.svg"><img src="assets/images/specialization/image.svg" alt=""> </picture>
+                                <div class="s-specialization__list">
+                                    <div class="s-specialization__item s-specialization__item--orange">
+                                        <p class="s-specialization__item-uptitle">Что делать?</p>
+                                        <h3 class="s-specialization__item-title">Исследование операций – Предписывающая аналитика</h3>
+                                        <p class="s-specialization__item-subtitle">Математическая оптимизация (+информация о будущем)</p>
+                                        <p class="s-specialization__item-text">Принятие решений, рекомендательные системы</p>
+                                    </div>
+                                    <div class="s-specialization__item">
+                                        <p class="s-specialization__item-uptitle">Что произойдет?</p>
+                                        <h3 class="s-specialization__item-title">ПРЕДИКТИВНАЯ АНАЛИТИКА</h3>
+                                        <p class="s-specialization__item-subtitle">Данные + вычислительная мощность</p>
+                                        <p class="s-specialization__item-text">Статистика, прогнозирование, выявление скрытых связей</p>
+                                    </div>
+                                    <div class="s-specialization__item s-specialization__item--violet">
+                                        <p class="s-specialization__item-uptitle">ЧТО произошло?</p>
+                                        <h3 class="s-specialization__item-title">ОПИСАТЕЛЬНАЯ АНАЛИТИКА</h3>
+                                        <p class="s-specialization__item-subtitle">Пост-анализ данных</p>
+                                        <p class="s-specialization__item-text">Визуализация, корреляции, бизнес-аналитика</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section s-theory" id="theory">
+                    <picture class="s-theory__bg"> <img src="assets/images/theory/bg.jpg" srcset="assets/images/theory/bg--retina.jpg 2x" alt=""></picture>
+                    <div class="container">
+                        <div class="s-theory__inner">
+                            <div class="s-theory__header">
+                                <h2 class="h2 s-theory__title">Теория принятия решений для вашего бизнеса.</h2> </div>
+                            <div class="s-theory__body">
+                                <div class="slider s-theory__slider" data-component="slider" data-slider-id="theory">
+                                    <div class="swiper slider__inner" data-slider="inner">
+                                        <div class="swiper-wrapper slider__wrapper">
+                                            <div class="swiper-slide slider__slide">
+                                                <div class="s-theory__item"> <img src="assets/images/theory/item-1.svg" alt="">
+                                                    <h4>Мы сформулируем аналитическую задачу.</h4> </div>
+                                            </div>
+                                            <div class="swiper-slide slider__slide">
+                                                <div class="s-theory__item"> <img src="assets/images/theory/item-2.svg" alt="">
+                                                    <h4>Мы переведем ваши бизнес-цели в математическую форму.</h4> </div>
+                                            </div>
+                                            <div class="swiper-slide slider__slide">
+                                                <div class="s-theory__item"> <img src="assets/images/theory/item-3.svg" alt="">
+                                                    <h4>Подберем механизмы оптимизации и алгоритмы для поиска решения задачи.</h4> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section s-services" id="services">
+                    <div class="container">
+                        <div class="s-services__inner">
+                            <div class="s-services__header">
+                                <h2 class="h2 s-services__title">Сервисы:</h2> </div>
+                            <div class="s-services__body" data-component="tabs">
+                                <div class="s-services__nav">
+                                    <div class="badges" data-component="badges">
+                                        <div class="badges__list" data-node="content">
+                                            <button class="badge is-active" type="button" data-tab="link">
+                                                <div class="badge__wrapper"> <span>Обучение</span></div>
+                                            </button>
+                                            <button class="badge" type="button" data-tab="link">
+                                                <div class="badge__wrapper"> <span>Консалтинг</span></div>
+                                            </button>
+                                            <button class="badge" type="button" data-tab="link">
+                                                <div class="badge__wrapper"> <span>Разработка</span></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s-services__content">
+                                    <div class="s-services__group" data-tab="item">
+                                        <div class="s-services__item"> <img src="assets/images/services/1.svg" alt="">
+                                            <h4>Корпоративные тренинги и мастер-классы</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/2.svg" alt="">
+                                            <h4>Переквалификация сотрудников компании или частных лиц</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/3.svg" alt="">
+                                            <h4>Цикл лекций для разработчико</h4> </div>
+                                        <button class="s-services__item s-services__item--link" type="button" data-bs-toggle="modal" data-bs-target="#m-callback">
+                                            <svg class="icon" role="presentation">
+                                                <use xlink:href="./assets/sprite/clean/sprite.svg#soc-telegram"></use>
+                                            </svg><span>Отправить <br> заявку</span></button>
+                                    </div>
+                                    <div class="s-services__group" data-tab="item">
+                                        <div class="s-services__item"> <img src="assets/images/services/4.svg" alt="">
+                                            <h4>Анализ бизнес процессов на предмет применения оптимизационных моделей</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/5.svg" alt="">
+                                            <h4>Собеседование кандидатов по мат. моделированию и оптимизации</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/6.svg" alt="">
+                                            <h4>Участие в приемо-сдаточных испытаниях в качестве эксперта</h4> </div>
+                                        <button class="s-services__item s-services__item--link" type="button" data-bs-toggle="modal" data-bs-target="#m-callback">
+                                            <svg class="icon" role="presentation">
+                                                <use xlink:href="./assets/sprite/clean/sprite.svg#soc-telegram"></use>
+                                            </svg><span>Отправить <br> заявку</span></button>
+                                    </div>
+                                    <div class="s-services__group" data-tab="item">
+                                        <div class="s-services__item"> <img src="assets/images/services/7.svg" alt="">
+                                            <h4>Проектирование и python реализация прототипа оптимизационной модели</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/8.svg" alt="">
+                                            <h4>Управление командой “математиков” по разработке оптимизационных решений</h4> </div>
+                                        <div class="s-services__item"> <img src="assets/images/services/9.svg" alt="">
+                                            <h4>Поддержка и доработка текущего оптимизационного решения</h4> </div>
+                                        <button class="s-services__item s-services__item--link" type="button" data-bs-toggle="modal" data-bs-target="#m-callback">
+                                            <svg class="icon" role="presentation">
+                                                <use xlink:href="./assets/sprite/clean/sprite.svg#soc-telegram"></use>
+                                            </svg><span>Отправить <br> заявку</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button s-services__button" type="button" data-bs-toggle="modal" data-bs-target="#m-callback"><span class="button__text">Отправить заявку</span></button>
+                        </div>
+                    </div>
+                </section>
+                <section class="section s-about" id="about"><img class="s-about__bg" src="assets/images/about/bg.svg" alt="">
+                    <div class="container">
+                        <div class="s-about__inner">
+                            <picture class="s-about__image"> <img src="assets/images/about/photo.jpg" srcset="assets/images/about/photo--retina.jpg 2x" alt=""></picture>
+                            <div class="s-about__main">
+                                <h2 class="h4 s-about__title">Автор – Алексис Ложкинс <span>Разработчик математических моделей, консультант и игрок в большой теннис</span></h2>
+                                <p class="s-about__text">Начиная с 2014 года накапливаю практический опыт в промышленной и прикладной математике, предписывающей аналитике и бизнес-анализе. В моем портфолио ряд успешных историй в области оптимизации и автоматизации бизнес процессов. Слежу за текущими тенденциями практического применения методов оптимизации и моделирования.</p>
+                                <button class="button s-about__button" type="button" data-bs-toggle="modal" data-bs-target="#m-info"><span class="button__text">Узнать больше</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section s-articles" id="articles">
+                    <div class="container">
+                        <div class="s-articles__inner">
+                            <div class="s-articles__grid">
+                                <a class="c-article" href="#">
+                                    <div class="c-article__image"> <img src="assets/images/articles/card-1.jpg" alt=""></div>
+                                    <div class="c-article__labels"> <span>Анализ</span></div>
+                                    <div class="c-article__content">
+                                        <h4>Математическое моделирование в ORtools: задача планирования расписаний</h4>
+                                        <p>Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies</p>
+                                    </div>
+                                </a>
+                                <a class="c-article" href="#">
+                                    <div class="c-article__image"> <img src="assets/images/articles/card-2.jpg" alt=""></div>
+                                    <div class="c-article__labels"> <span>Анализ</span></div>
+                                    <div class="c-article__content">
+                                        <h4>Математическое моделирование в ORtools: задача планирования расписаний</h4>
+                                        <p>Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies</p>
+                                    </div>
+                                </a>
+                                <a class="c-article" href="#">
+                                    <div class="c-article__image"> <img src="assets/images/articles/card-3.jpg" alt=""></div>
+                                    <div class="c-article__labels"> <span>Анализ</span></div>
+                                    <div class="c-article__content">
+                                        <h4>Математическое моделирование в ORtools: задача планирования расписаний</h4>
+                                        <p>Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="s-articles__more">
+                                <a class="link s-articles__more-link" href="#" target="_blank"> <span>Читать статьи на Хабр</span>
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#soc-habr"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <div class="layout__main-footer">
+            <section class="section s-subscribe" id="subscribe">
+                <div class="container s-subscribe__container">
+                    <div class="s-subscribe__inner">
+                        <div class="s-subscribe__header">
+                            <h2 class="h2 s-subscribe__title">Будьте в курсе всех новостей</h2> </div>
+                        <div class="s-subscribe__body">
+                            <div class="form s-subscribe__form">
+                                <form action="#">
+                                    <div class="form__inner">
+                                        <div class="input form__input input--light input--lg" data-component="input">
+                                            <label class="input__wrapper">
+                                                <input class="input__native" type="text" data-input="native" value="" placeholder="Ваш Email" data-mask="mail" />
+                                            </label><span class="input__status">Обязательно для заполнения</span></div>
+                                        <button class="button button--light button--lg form__submit" type="submit"><span class="button__text">Подписаться</span></button>
+                                        <p class="form__policy">Отправляя свои персональные данные, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="footer__main">
+                    <div class="container">
+                        <div class="footer__main-inner">
+                            <div class="footer__links">
+                                <a class="footer__link" href="mailto:consult@lozkins.ru">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#mail"></use>
+                                    </svg><span>mailto:consult@lozkins.ru</span></a>
+                            </div>
+                            <div class="footer__logo"> <img src="assets/images/logo/logo-vertical.svg" alt="" /></div>
+                            <div class="socials footer__socials">
+                                <a class="socials__link" href="#" target="_blank">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#soc-linkedin"></use>
+                                    </svg>
+                                </a>
+                                <a class="socials__link" href="#" target="_blank">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#soc-habr"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__menu">
+                    <div class="container">
+                        <div class="footer__menu-inner">
+                            <div class="footer__nav">
+                                <nav class="nav"><a class="nav__link" href="#intro">Главная</a><a class="nav__link" href="#services">Сервисы</a><a class="nav__link" href="#about">Автор</a><a class="nav__link" href="#articles">Статьи</a></nav>
+                            </div>
+                            <button class="footer__action" type="button" data-bs-toggle="modal" data-bs-target="#m-callback"><span>Заявка</span>
+                                <svg class="icon" role="presentation">
+                                    <use xlink:href="./assets/sprite/clean/sprite.svg#soc-telegram"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
 
-          unlock(progress, loadedImg);
-        }
-      }
-    })
-  </script>
-  <script src="js/index.js"></script>
-</body>
-
+        <div class="modal fade" id="m-callback" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal__menu">
+                        <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <svg class="icon" role="presentation">
+                                <use xlink:href="./assets/sprite/clean/sprite.svg#cancel"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal__bg">
+                        <picture class="modal__bg-image">
+                            <source media="(max-width: 833px)" srcset="assets/images/modals/callback--md.svg" /><img src="assets/images/modals/callback.svg" alt="" /> </picture>
+                    </div>
+                    <div class="modal__main">
+                        <div class="modal__header">
+                            <h2 class="h2 modal__title">Заявка</h2> </div>
+                        <div class="modal__body">
+                            <div class="modal-form modal__form">
+                                <form action="#">
+                                    <div class="modal-form__body">
+                                        <div class="modal-form__group modal-form__group--md">
+                                            <label class="radio-large modal-form__radio">
+                                                <input class="radio-large__input" type="radio" name="type" value="radio-large" checked="checked" /><span class="radio-large__content"> <svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#education"></use></svg><span>Обчение</span></span><span class="radio-large__icon"><svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use></svg></span></label>
+                                            <label class="radio-large modal-form__radio">
+                                                <input class="radio-large__input" type="radio" name="type" value="radio-large" /><span class="radio-large__content"> <svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#consulting"></use></svg><span>Консалтинг</span></span><span class="radio-large__icon"><svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use></svg></span></label>
+                                            <label class="radio-large modal-form__radio">
+                                                <input class="radio-large__input" type="radio" name="type" value="radio-large" /><span class="radio-large__content"> <svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#development"></use></svg><span>Разработка</span></span><span class="radio-large__icon"><svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use></svg></span></label>
+                                            <label class="radio-large modal-form__radio">
+                                                <input class="radio-large__input" type="radio" name="type" value="radio-large" /><span class="radio-large__content"> <svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#other"></use></svg><span>Другое</span></span><span class="radio-large__icon"><svg class="icon" role="presentation"><use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use></svg></span></label>
+                                        </div>
+                                        <div class="modal-form__group">
+                                            <div class="input modal-form__input" data-component="input">
+                                                <label class="input__wrapper">
+                                                    <input class="input__native" type="text" data-input="native" value="" placeholder="Фамилия Имя Отчество" data-mask="letters" />
+                                                    <svg class="icon input__icon input__icon--left" role="presentation">
+                                                        <use xlink:href="./assets/sprite/clean/sprite.svg#personal"></use>
+                                                    </svg>
+                                                </label><span class="input__status">Обязательно для заполнения</span></div>
+                                            <div class="input modal-form__input" data-component="input">
+                                                <label class="input__wrapper">
+                                                    <input class="input__native" type="text" data-input="native" value="" placeholder="Email" data-mask="mail" />
+                                                    <svg class="icon input__icon input__icon--left" role="presentation">
+                                                        <use xlink:href="./assets/sprite/clean/sprite.svg#mail"></use>
+                                                    </svg>
+                                                </label><span class="input__status">Обязательно для заполнения</span></div>
+                                            <div class="input input--textarea modal-form__input" data-component="input">
+                                                <label class="input__wrapper">
+                                                    <textarea class="input__native" data-input="native" placeholder="Добавьте комментарий" data-mask="letters"></textarea>
+                                                    <svg class="icon input__icon input__icon--left" role="presentation">
+                                                        <use xlink:href="./assets/sprite/clean/sprite.svg#message"></use>
+                                                    </svg>
+                                                </label><span class="input__status">Обязательно для заполнения</span></div>
+                                        </div>
+                                        <div class="modal-form__group">
+                                            <p class="modal-form__policy">Отправляя свои персональные данные, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-form__footer">
+                                        <button class="button button--fill button--lg modal-form__submit" type="submit"><span class="button__text">Отправить</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modal--info" id="m-info" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal__menu">
+                        <button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <svg class="icon" role="presentation">
+                                <use xlink:href="./assets/sprite/clean/sprite.svg#cancel"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal__bg">
+                        <picture class="modal__bg-image"> <img src="assets/images/modals/info.jpg" alt="" /></picture>
+                    </div>
+                    <div class="modal__main">
+                        <div class="modal__body">
+                            <div class="modal__list">
+                                <div class="modal__list-item">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
+                                    </svg>
+                                    <div class="modal__list-content">
+                                        <p>Кандидат физ.-мат. наук, специальность Математическое моделирование, численные методы и комплексы программ;</p>
+                                    </div>
+                                </div>
+                                <div class="modal__list-item">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
+                                    </svg>
+                                    <div class="modal__list-content">
+                                        <p>Опыт разработки математических моделей и оптимизационных решений – 9 лет;</p>
+                                    </div>
+                                </div>
+                                <div class="modal__list-item">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
+                                    </svg>
+                                    <div class="modal__list-content">
+                                        <p>В найме успешно запустил крупные оптимизационные решения для Huawei, Деловые Линии, Газпром Нефть и других компаний;</p>
+                                    </div>
+                                </div>
+                                <div class="modal__list-item">
+                                    <svg class="icon" role="presentation">
+                                        <use xlink:href="./assets/sprite/clean/sprite.svg#ok"></use>
+                                    </svg>
+                                    <div class="modal__list-content">
+                                        <p>Наличие экспертизы оптимизации транспортной логистики, цепочек поставок, производственного планирования и маршрутизации.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal__actions">
+                                <button class="button button--lg modal__action" type="button" data-bs-toggle="modal" data-bs-target="#m-callback"><span class="button__text">Хочу сотрудничать</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preloader" data-preloader="component"><span></span></div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if(document.querySelector('[data-preloader="component"]')) {
+                    const preloader = document.querySelector('[data-preloader="component"]');
+                    const preloaderPercentage = preloader.querySelector('[data-preloader="percentage"]');
+                    const images = document.querySelectorAll('img');
+                    const imagesCount = images.length;
+                    const body = document.querySelector('body');
+                    const percent = 100 / imagesCount;
+                    let progress = 0;
+                    let loadedImg = 0;
+                    const imgLoad = () => {
+                        progress += percent;
+                        loadedImg++;
+                        unlock(progress, loadedImg);
+                    };
+                    const unlock = (progress, loadedImg) => {
+                        //- preloaderPercentage.innerHTML = Math.round(progress) + ' %';
+                        if(progress >= 100 || loadedImg === imagesCount) {
+                            setTimeout(() => {
+                                preloader.classList.add('is-loaded');
+                            }, 250);
+                            setTimeout(() => {
+                                body.classList.add('is-unlock');
+                            }, 500);
+                        }
+                    };
+                    if(imagesCount !== 0) {
+                        images.forEach(img => {
+                            if(img.complete) {
+                                imgLoad();
+                            } else {
+                                img.onload = () => {
+                                    imgLoad();
+                                };
+                                img.onerror = () => {
+                                    imgLoad();
+                                };
+                            }
+                        });
+                    } else {
+                        progress = 100;
+                        loadedImg = 0;
+                        unlock(progress, loadedImg);
+                    }
+                }
+            })
+        </script>
+        <script src="js/index.js"></script>
+    </body>
 </html>
