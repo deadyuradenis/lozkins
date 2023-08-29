@@ -1,14 +1,15 @@
 import './index.scss';
 
-const anchorLink = (node) => {
-  if (!node) {
+const initLinkComponent = (component) => {
+    
+  if (!component) {
     return;
   }
 
-  node.addEventListener('click', (e) => {
+  component.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const id = node.getAttribute('href');
+    const id = component.getAttribute('href');
 
     if (id !== '#') {
       document.querySelector(id).scrollIntoView({
@@ -19,4 +20,11 @@ const anchorLink = (node) => {
   });
 };
 
-export default anchorLink;
+
+const links = () => {
+    const componentNodes = Array.from(document.querySelectorAll('a[href*="#"]'));
+
+    componentNodes.forEach(initLinkComponent);
+}
+
+export default links;

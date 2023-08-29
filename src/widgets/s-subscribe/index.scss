@@ -1,0 +1,60 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.s-subscribe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex-grow: 1;
+    
+    background-color: $blue;
+
+    padding: 220px 0;
+
+    @media only screen and (max-width: $bp-xxxl) {
+        padding: 180px 0;
+    }
+
+    @media only screen and (max-width: $bp-xl) {
+        padding: 140px 0;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        padding: 120px 0;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        padding: 50px 0;
+    }
+
+    &__container {
+        @media only screen and (max-width: $bp-lg) {
+            padding: 0 80px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            padding: 0 60px;
+        }
+    }
+
+    &__header {
+
+        &:not(:last-child) {
+            margin-bottom: 52px;
+    
+            @media only screen and (max-width: $bp-lg) {
+                margin-bottom: 44px;
+            }
+        }
+    }
+
+    &__title {
+        text-transform: none;
+        font-weight: 700;
+
+        @media only screen and (max-width: $bp-md) {
+            line-height: 40px;
+        }
+    }
+}

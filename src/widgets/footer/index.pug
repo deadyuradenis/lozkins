@@ -4,19 +4,30 @@ include /core/ui/nav/index.pug
 mixin footer(props = {})
     
     footer.footer 
-        .container 
-            .footer__inner 
-                .footer__links 
-                    a.footer__link(href="mailto:consult@lozkins.ru")
-                        +icon('mail')
-                        span mailto:consult@lozkins.ru
-                
-                .footer__logo 
-                    img(src="assets/images/logo/logo-vertical.svg", alt="")
-                
-                .socials.footer__socials 
-                    a.socials__link(href="#", target="_blank")
-                        +icon('soc-linkedin')
+        .footer__main
+            .container 
+                .footer__main-inner 
+                    .footer__links 
+                        a.footer__link(href="mailto:consult@lozkins.ru")
+                            +icon('mail')
+                            span mailto:consult@lozkins.ru
                     
-                    a.socials__link(href="#", target="_blank")
-                        +icon('soc-habr')
+                    .footer__logo 
+                        img(src="assets/images/logo/logo-vertical.svg", alt="")
+                    
+                    .socials.footer__socials 
+                        a.socials__link(href="#", target="_blank")
+                            +icon('soc-linkedin')
+                        
+                        a.socials__link(href="#", target="_blank")
+                            +icon('soc-habr')
+        
+        .footer__menu 
+            .container 
+                .footer__menu-inner 
+                    .footer__nav 
+                        +nav()
+                    
+                    button.footer__action(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                        span Заявка
+                        +icon('soc-telegram')

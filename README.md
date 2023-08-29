@@ -1,9 +1,7 @@
 ## Команды
 
-Установить сборку в папку проекта, если вы создаете проект с нуля
 
 ```
-git clone git@github.com:spiks/bitrix-kit-frontend-new.git .
 npm сi 
 npm run util:remove-rep  
 npm run util:init-rep  
@@ -19,7 +17,7 @@ npm сi
 Запустить дев для разработки
 
 ```
-npm run start
+npm run dev
 ```
 
 Собрать проект
@@ -48,8 +46,6 @@ npm run gen:page
 npx gulp transformFonts
 ```
   
-&nbsp;  
-&nbsp;  
 ## Инструкции
 
 #1

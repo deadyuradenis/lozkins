@@ -2,7 +2,7 @@ import modal from 'Core/ui/modal/index.js';
 
 import './index.scss';
 
-const callback = () => {
+const modalCallback = () => {
     const node = document.querySelector('#m-callback');
     
     if (!node) {
@@ -13,4 +13,4 @@ const callback = () => {
     modal(node);
 };
 
-export default callback;
+export default modalCallback;

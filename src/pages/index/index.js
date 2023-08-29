@@ -1,7 +1,7 @@
 import './index.scss';
 
-const index = () => {
+const main = () => {
 
 };
 
-export default index;
+export default main;

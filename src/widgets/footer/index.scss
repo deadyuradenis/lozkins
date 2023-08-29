@@ -4,24 +4,30 @@
 .footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 272px;
 
-    padding: 92px 0;
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-    background-color: $gray;
+        min-height: 272px;
 
-    @media only screen and (max-width: $bp-xl) {
-        padding: 76px 0;
-        min-height: auto;
+        padding: 92px 0;
+    
+        background-color: $gray;
+    
+        @media only screen and (max-width: $bp-xl) {
+            padding: 76px 0;
+            min-height: auto;
+        }
+    
+        @media only screen and (max-width: $bp-lg) {
+            padding: 60px 0;
+            background-color: $dark-medium;
+        }
     }
 
-    @media only screen and (max-width: $bp-lg) {
-        padding: 60px 0;
-        background-color: $dark-medium;
-    }
-
-    &__inner{
+    &__main-inner{
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -106,6 +112,109 @@
             flex-direction: column;
             justify-content: center;
             flex: unset;
+        }
+    }
+
+    // menu
+
+    &__menu {
+        display: flex;
+        align-items: center;
+
+        min-height: 110px;
+
+        padding: 26px 0;
+        background-color: hsla(0, 0%, 0%, 0.4);
+
+        @media only screen and (max-width: $bp-lg) {
+            // min-height: 80px;
+    
+            padding: 22px 0;
+        }
+    
+        @media only screen and (max-width: $bp-md) {
+            display: none;
+        }
+    
+        @media only screen and (min-height: 1440px) {
+            display: none;
+        }
+    }
+
+    &__menu-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px 40px;
+
+        @media only screen and (max-width: $bp-xl) {
+            gap: 16px 32px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            gap: 12px 24px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            gap: 10px 20px;
+        }
+    }
+
+    &__nav {
+        flex-grow: 1;
+    }
+
+    &__action {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        color: $blue;
+        fill: $blue;
+
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 120%;
+        
+        transition: color 0.3s ease, fill 0.3s ease;
+
+        @media only screen and (max-width: $bp-xl) {
+            font-size: 28px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            font-size: 24px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            font-size: 20px;
+        }
+
+        &:hover{
+            color: $blue-light;
+            fill: $blue-light;
+        }
+ 
+        @media (hover: hover) {
+            &:active {
+                color: $blue-medium;
+                fill: $blue-medium;
+            }
+        }
+
+        .icon{
+            width: 32px;
+            height: 32px;
+
+            @media only screen and (max-width: $bp-lg) {
+                width: 28px;
+                height: 28px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 }

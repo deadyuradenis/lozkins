@@ -1,0 +1,67 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.form {
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        @media only screen and (max-width: $bp-xl) {
+            
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            flex-direction: column;
+            flex-wrap: unset;
+        }
+    }
+
+    &__input {
+        width: auto;
+        flex-grow: 1;
+    }
+
+    &__submit {
+    }
+
+    &__policy {
+        width: 100%;
+
+        color: #ACCCF8;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 120%;
+
+        @media only screen and (max-width: $bp-xl) {
+            font-size: 18px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            font-size: 16px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            font-size: 14px;
+        }
+
+        a {
+            color: inherit;
+            transition: color 0.3s ease;
+
+            &:hover{
+                color: #fff;
+            }
+            
+            @media (hover: hover) {
+                &:active{
+                    color: #d4e4fc;
+                }
+            }
+        }
+    }
+}

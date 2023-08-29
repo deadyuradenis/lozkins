@@ -5,25 +5,24 @@ import './theme/index.scss';
 // Pages
 import 'Pages/index/index.js';
 import uiKit from 'Pages/ui-kit/index.js';
-import main from 'Pages/main/index.js';
+import map from 'Pages/map/index.js';
 
 // Ui
 import 'Ui/section/index.js';
-import 'Ui/link/index.js';
+import links from 'Ui/link/index.js';
 import 'Ui/list/index.js';
-import 'Ui/grid/index.js';
-import 'Ui/gallery/index.js';
 import 'Ui/nav/index.js';
-import 'Ui/socials/index.js';
 
 import 'Ui/button/index.js';
-import 'Ui/checkbox/index.js';
-import 'Ui/radio/index.js';
 import 'Ui/radio-large/index.js';
 import inputs from 'Ui/input/index.js';
 import 'Ui/badge/index.js';
-import badges from 'Ui/badges/index.js';
+
+import 'Ui/badges/index.js';
 import tabs from 'Ui/tabs/index.js';
+
+import 'Ui/form/index.js';
+import 'Ui/socials/index.js';
 import 'Ui/slider/index.js';
 
 // Blocks
@@ -31,30 +30,34 @@ import header from 'Widgets/header/index.js';
 import 'Widgets/footer/index.js';
 
 // Modals
-import callback from 'Widgets/modals/callback/index.js';
+import modalCallback from 'Widgets/modals/callback/index.js';
+import modalInfo from 'Widgets/modals/info/index.js';
 
 // Cards
-// import 'Widgets/c-product/index.js';
+import 'Widgets/c-article/index.js';
 
 // Sections
 import 'Widgets/s-intro/index.js';
+import 'Widgets/s-about/index.js';
+import 'Widgets/s-articles/index.js';
+import 'Widgets/s-services/index.js';
+import 'Widgets/s-specialization/index.js';
+import 'Widgets/s-subscribe/index.js';
+import 'Widgets/s-theory/index.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // badges();
+    links();
     inputs();
-    // Blocks
+
     header();
     tabs();
-    // breadcrumbs();
-
-    // Sections
 
     // Modals
-    callback();
+    modalCallback();
+    modalInfo();
 
     // Pages
-
     uiKit();
-    main();
+    map();
 })

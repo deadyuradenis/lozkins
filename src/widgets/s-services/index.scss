@@ -1,0 +1,249 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.s-services {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    @media only screen and (min-height: 1440px) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-xl) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        min-height: auto;
+    }
+
+    &__header {
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-bottom: 32px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-bottom: 24px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+        &:not(:last-child) {
+            margin-bottom: 80px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-bottom: 56px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-bottom: 36px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .badges{
+            width: 100%;
+
+            &__list {
+                flex-grow: 1;
+            }
+
+            .badge {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    &__content {
+    }
+
+    &__group {
+        display: flex;
+        display: none;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        padding: 40px;
+
+        border-radius: 20px;
+        background-color: #333333;
+        display: none;
+
+        @media only screen and (max-width: $bp-xl) {
+            gap: 45px 30px;
+
+            padding: 32px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            gap: 40px 20px;
+
+            padding: 24px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            gap: 32px 10px;
+
+            padding: 20px;
+        }
+
+        &.is-active {
+            display: flex;
+            animation: fadeInTop 0.85s ease;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: calc(33.33% - 80px / 3);
+        min-height: 174px;
+
+        @media only screen and (max-width: $bp-xl) {
+            width: calc(33.33% - 60px / 3);
+            min-height: 150px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            width: calc(33.33% - 40px / 3);
+            min-height: 122px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            width: calc(50% - 20px / 2);
+            min-height: 94px;
+        }
+
+        img,
+        .icon {
+            max-width: 100%;
+            height: 76px;
+
+            @media only screen and (max-width: $bp-xl) {
+                height: 58px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                height: 42px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                height: 24px;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+
+                @media only screen and (max-width: $bp-lg) {
+                    margin-bottom: 16px;
+                }
+
+                @media only screen and (max-width: $bp-md) {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        h4,
+        span {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 4;
+
+            text-align: center;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 120%;
+
+            @media only screen and (max-width: $bp-xl) {
+                font-size: 20px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                font-size: 18px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                font-size: 14px;
+            }
+        }
+
+        &--link{
+            display: none;
+            
+            color: $blue-light;
+            fill: $blue-light;
+
+            transition: color 0.3s ease, fill 0.3s ease;
+
+            @media only screen and (max-width: $bp-md) {
+                display: flex;
+            }
+
+            &:hover {
+                color: $blue;
+                fill: $blue;
+            }
+
+            @media (hover: hover) {
+                &:active {
+                    color: $blue-medium;
+                    fill: $blue-medium;
+                }
+            }
+
+            h4 {
+                @media only screen and (max-width: $bp-md) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    &__button {
+        &:not(:first-child) {
+            margin-top: 80px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-top: 60px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-top: 40px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                display: none;
+            }
+        }
+    }
+}

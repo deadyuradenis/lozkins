@@ -839,17 +839,11 @@ block workarea
                             button.button(type="button" data-bs-toggle="modal" data-bs-target="#m-callback")
                                 span.button__text Modal "Callback"
         
-                //- Breadcrumbs
-
-                .ui__block#ui-breadcrumbs 
-                    .ui__row
-                        .ui__col 
-                            .h3 Breadcrumbs
-                            
                     .ui__row 
                         .ui__col 
-                            +breadcrumbs({list: ['Главная', 'Страница', 'Страница']})
-            
+                            button.button(type="button" data-bs-toggle="modal" data-bs-target="#m-info")
+                                span.button__text Modal "Info"
+        
                 //- Slider
                 
                 .ui__block#ui-slider 

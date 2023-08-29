@@ -1,0 +1,14 @@
+include /core/lib/layout/index.pug
+
+mixin form(props = { class: [], attrs: {} })
+    -
+        let classes = ['form'];
+        let attrs = props.attrs ? props.attrs : {};
+
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    div(class= classes,)&attributes(attrs)

@@ -19,9 +19,9 @@ mixin checkbox(props = {class: [], attrs: {}})
     label(class= classes, disabled= disabled)&attributes(attrs)
         input.checkbox__input(type= "checkbox", name= name, value= "checkbox", checked= checked)
 
-        .checkbox__wrapper 
-            .checkbox__icon-wrapper 
+        span.checkbox__wrapper 
+            span.checkbox__icon-wrapper 
                 +icon('ok')(class="checkbox__icon")
             if block 
-                .checkbox__content
+                span.checkbox__content
                     block

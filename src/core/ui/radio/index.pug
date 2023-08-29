@@ -19,9 +19,9 @@ mixin radio(props = {classes: [], attrs: {}})
     label(class= classes, disabled= disabled)&attributes(attrs)
         input.radio__input(type= "radio", name= name, value= "radio", checked= checked)
 
-        .radio__wrapper 
-            .radio__icon-wrapper 
-                .radio__icon
+        span.radio__wrapper 
+            span.radio__icon-wrapper 
+               span.radio__icon
             if block 
-                .radio__content
+                span.radio__content
                     block

@@ -24,9 +24,31 @@
     &__main {
         display: flex;
         flex-direction: column;
+
         flex-grow: 1;
         width: 100%;
+
         overflow: hidden;
+    }
+
+    &__main-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__main-footer {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    
+        @media only screen and (min-height: 1440px) {
+            min-height: 70vh;
+        }
+    
+        @media only screen and (max-width: $bp-md) {
+            min-height: auto;
+        }
     }
 
     &__container {

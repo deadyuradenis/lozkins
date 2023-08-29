@@ -2,10 +2,9 @@ include /core/lib/layout/index.pug
 
 mixin input(props = { class: [], attrs: {}})
     -
-        const name = props.name ? props.name : 'checkbox';
+        const name = props.name ? props.name : 'input';
         const value = props.value ? props.value : '';
         const type = props.type ? props.type : 'text';
-        const tag = type === 'textarea' ? 'textarea' : 'input';
         const disabled = props.disabled ? props.disabled : false;
         const placeholder = props.placeholder ? props.placeholder : 'placeholder';
         const status = props.status ? props.status : 'Обязательно для заполнения';
@@ -16,6 +15,34 @@ mixin input(props = { class: [], attrs: {}})
         let attrs = props.attrs ? props.attrs : {};
         let inputDataset = props.inputDataset ? props.inputDataset : {};
         
+        if (Array.isArray(props.class)) {
+            props.class.forEach((key) => {
+                classes.push(key);
+            })
+        }
+
+    div(class= classes, disabled=disabled, data-component="input")&attributes(attrs)
+        label.input__wrapper 
+            input.input__native(type="text", data-input="native", value=value, placeholder=placeholder, data-mask=mask, data-required=required)&attributes(inputDataset)
+            block 
+
+        span.input__status!= status
+
+
+mixin textarea(props = { class: [], attrs: {}})
+    -
+        const name = props.name ? props.name : 'textarea';
+        const value = props.value ? props.value : '';
+        const disabled = props.disabled ? props.disabled : false;
+        const placeholder = props.placeholder ? props.placeholder : 'placeholder';
+        const status = props.status ? props.status : 'Обязательно для заполнения';
+        const mask = props.mask ? props.mask : false;
+        const required = props.required === true ? 'true' : false;
+        
+        let classes = ['input', 'input--textarea'];
+        let attrs = props.attrs ? props.attrs : {};
+        let inputDataset = props.inputDataset ? props.inputDataset : {};
+        
 
         if (Array.isArray(props.class)) {
             props.class.forEach((key) => {
@@ -23,11 +50,9 @@ mixin input(props = { class: [], attrs: {}})
             })
         }
 
-        type === 'textarea' ? classes.push('input--textarea') : '';
-
     div(class= classes, disabled=disabled, data-component="input")&attributes(attrs)
         label.input__wrapper 
-            #{tag}.input__native(type="text", data-input="native", value=value, placeholder=placeholder, data-mask=mask, data-required=required)&attributes(inputDataset)!= type === 'textarea' ? value : ''
+            textarea.input__native(data-input="native", placeholder=placeholder, data-mask=mask, data-required=required)&attributes(inputDataset)!= value
             block 
 
         span.input__status!= status

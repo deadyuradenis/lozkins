@@ -20,9 +20,9 @@ mixin radioLarge(props = {classes: [], attrs: {}})
     label(class= classes, disabled= disabled)&attributes(attrs)
         input.radio-large__input(type= type, name= name, value= "radio-large", checked= checked)
 
-        .radio-large__content 
+        span.radio-large__content 
             block
 
-        .radio-large__icon
+        span.radio-large__icon
             +icon('ok')
             

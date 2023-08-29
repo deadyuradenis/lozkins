@@ -10,7 +10,7 @@
     "gen:layout": "npx hygen new layout",
     "gen:page": "npx hygen new page",
     "gen:fonts": "npx gulp transformFonts",
-    "start": "npx gulp start",
+    "dev": "npx gulp start",
     "build": "npx gulp build",
     "deploy": "npx gulp deploy",
     "lint": "npx eslint \"src/**/*.js\"",
@@ -18,7 +18,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "author": "visetin <visetin9@yandex.ru>",
+  "author": "deadyuradenis",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.21.4",

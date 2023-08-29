@@ -1,0 +1,101 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.s-articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    @media only screen and (min-height: 1440px) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-xl) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        min-height: auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+
+        @media only screen and (max-width: $bp-xl) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        padding: 10px 0;
+
+        &:not(:first-child) {
+            margin-top: 80px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-top: 70px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-top: 60px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-top: 50px;
+            }
+        }
+
+        &::before, 
+        &::after {
+            content: "";
+
+            display: flex;
+
+            height: 1px;
+            flex-grow: 1;
+
+            background-color: hsla(214, 84%, 56%, 0.32);
+        }
+    }
+
+    &__more-link {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 120%;
+
+        @media only screen and (max-width: $bp-xl) {
+            font-size: 26px;
+        }
+    
+        @media only screen and (max-width: $bp-lg) {
+            font-size: 20px;
+        }
+    
+        @media only screen and (max-width: $bp-md) {
+            font-size: 14px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+
+            @media only screen and (max-width: $bp-lg) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}

@@ -25,7 +25,7 @@
         background-color: transparent;
         border-radius: 50%;
         fill: #fff;
-        border: 1px solid #D9D9D9;
+        border: 2px solid $blue-light;
         transition: border-color 0.3s ease, background-color 0.3s ease;
         margin: 5px 0;
     }
@@ -35,7 +35,7 @@
         height: 8px;
         flex-shrink: 0;
         border-radius: 50%;
-        background-color: $dark;
+        background-color: $blue-light;
         opacity: 0;
         transform: scale(0.7);
         will-change: transform;
@@ -54,17 +54,13 @@
         pointer-events: none;
     }
 
-    &__input:checked + &__wrapper &__icon-wrapper{
-        border-color: $dark;
-    }
-
     &__input:checked + &__wrapper &__icon{
         opacity: 1;
         transform: scale(1);
     }
 
     &:hover &__input:not(:checked) + &__wrapper &__icon-wrapper{
-        border-color: $dark-light;
+        border-color: $blue;
     }
 
     &.is-error &__icon-wrapper{

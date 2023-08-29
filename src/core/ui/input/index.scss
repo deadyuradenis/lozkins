@@ -228,12 +228,12 @@
     }
         
     &.is-filled &__wrapper{
-        border-color: $blue;
+        border-color: $blue-medium;
         background-color: hsla(202, 71%, 52%, 0.12);
     }
         
     &.is-focused &__wrapper{
-        border-color: $blue;
+        border-color: $blue-light;
         background-color: hsla(202, 71%, 52%, 0.2);
     }
 
@@ -273,7 +273,6 @@
     &.is-loading &__native::placeholder{
         color: $yellow;
     }
-
 
     &.is-error &__status,
     &.is-success &__status,

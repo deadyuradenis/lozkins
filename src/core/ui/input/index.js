@@ -38,7 +38,7 @@ const initInputComponent = (componentNode) => {
         },
         letters: () => {
             input.addEventListener('input', () => {
-                input.value = input.value.replace(/[^a-zA-Z]/g, '');
+                input.value = input.value.replace(/[^a-zA-Zа-яА-Я]/g, '');
             })
         },
         phone: () => {

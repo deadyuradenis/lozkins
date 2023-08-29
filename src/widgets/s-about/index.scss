@@ -1,0 +1,197 @@
+@import "Core/config/theme/index.scss";
+@import "Core/lib/theme/index.scss";
+
+.s-about {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    background-color: $gray;
+    overflow: hidden;
+
+    @media only screen and (min-height: 1440px) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-xl) {
+        min-height: 70vh;
+    }
+
+    @media only screen and (max-width: $bp-lg) {
+        padding: 50px 0 80px;
+    }
+
+    @media only screen and (max-width: $bp-md) {
+        min-height: auto;
+
+        padding-bottom: 100px;
+
+        background-color: transparent;
+    }
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        object-fit: cover;
+
+        @media only screen and (max-width: $bp-md) {
+            display: none;
+        }
+    }
+
+    &__inner {
+        position: relative;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media only screen and (max-width: $bp-md) {
+            flex-direction: column;
+        }
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 412px;
+        height: 412px;
+        flex-shrink: 0;
+
+        margin-right: 120px;
+
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media only screen and (max-width: $bp-xl) {
+            width: 340px;
+            height: 340px;
+
+            margin-right: 64px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            width: 260px;
+            height: 260px;
+
+            margin-right: 32px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            width: 160px;
+            height: 160px;
+
+            margin-right: 0;
+            margin-bottom: 32px;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+    }
+
+    &__main {
+
+        @media only screen and (max-width: $bp-md) {
+            text-align: center;
+            max-width: 540px;
+        }
+    }
+
+    &__title {
+
+        span {
+            display: block;
+            
+            text-transform: none;
+            color: rgba(255, 255, 255, 0.70);
+            font-weight: 500;
+
+            @media only screen and (max-width: $bp-md) {
+                margin-top: 8px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-bottom: 32px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-bottom: 26px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__text {
+        color: #B3B3B3;
+
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 120%;
+
+        @media only screen and (max-width: $bp-xl) {
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: $bp-lg) {
+            font-size: 18px;
+        }
+
+        @media only screen and (max-width: $bp-md) {
+            font-size: 14px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-bottom: 32px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-bottom: 26px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__button {
+
+        &:not(:first-child) {
+            margin-top: 40px;
+
+            @media only screen and (max-width: $bp-xl) {
+                margin-top: 32px;
+            }
+
+            @media only screen and (max-width: $bp-lg) {
+                margin-top: 10px;
+            }
+
+            @media only screen and (max-width: $bp-md) {
+                margin-top: 0;
+            }
+        }
+    }
+}

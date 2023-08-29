@@ -1,22 +1,266 @@
 extends /core/templates/default.pug
 
-include /core/lib/layout/index.pug
-//- include /widgets/header/index.pug
-//- include /widgets/footer/index.pug
-
 block title 
-    title Map
-
-block beforeWorkarea
-    //- +header()
+    title Главная 
 
 block workarea
-    .sitemap
-        .sitemap__container
-            .sitemap__title Карта сайта
-            .sitemap__nav
-                a.sitemap__link(href="ui-kit.html") Ui Kit
-                a.sitemap__link(href="main.html") Главная
+    .layout__main-body
+        section.section.s-intro(id="intro")
+            .container 
+                .s-intro__inner 
+                    .s-intro__main 
+                        .s-intro__logo-wrapper
+                            img.s-intro__logo(src="assets/images/logo/logo-lg.svg", alt="")
+                            .s-intro__logo-line 
+                        h1.h1.s-intro__title Консалтинг, разработка <br> и обучение
+                        p.s-intro__subtitle Математическая оптимизация и моделирование для бизнеса
+                        button.button.s-intro__button(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                            span.button__text Отправить заявку
+                        
 
-block afterWorkarea
-    //- +footer()
+                    picture.s-intro__image
+                        img(src="assets/images/intro/picture.png" srcset="assets/images/intro/picture--retina.png 2x" alt="")
+
+        +header({
+            class: ['']
+        })
+        
+        main.layout__main
+            section.section.s-specialization(id="specialization")
+                .container.s-specialization__container
+                    .s-specialization__inner 
+                        .s-specialization__header
+                            h2.h3.s-specialization__title Наша специализация
+
+                        .s-specialization__body
+                            picture.s-specialization__image
+                                source(media="(max-width: 834px)" srcset="assets/images/specialization/image--md.svg")
+                                img(src="assets/images/specialization/image.svg" alt="")
+
+                            .s-specialization__list 
+                                .s-specialization__item.s-specialization__item--orange
+                                    p.s-specialization__item-uptitle Что делать?
+                                    h3.s-specialization__item-title Исследование операций – Предписывающая аналитика
+                                    p.s-specialization__item-subtitle Математическая оптимизация (+информация о будущем)
+                                    p.s-specialization__item-text Принятие решений, рекомендательные системы
+                                
+                                .s-specialization__item
+                                    p.s-specialization__item-uptitle Что произойдет?
+                                    h3.s-specialization__item-title ПРЕДИКТИВНАЯ АНАЛИТИКА
+                                    p.s-specialization__item-subtitle Данные + вычислительная мощность
+                                    p.s-specialization__item-text Статистика, прогнозирование, выявление скрытых связей
+                                
+                                .s-specialization__item.s-specialization__item--violet
+                                    p.s-specialization__item-uptitle ЧТО произошло?
+                                    h3.s-specialization__item-title ОПИСАТЕЛЬНАЯ АНАЛИТИКА
+                                    p.s-specialization__item-subtitle Пост-анализ данных
+                                    p.s-specialization__item-text Визуализация, корреляции, бизнес-аналитика
+                
+            section.section.s-theory(id="theory")
+                picture.s-theory__bg 
+                    img(src="assets/images/theory/bg.jpg" srcset="assets/images/theory/bg--retina.jpg 2x" alt="")
+                
+                .container 
+                    .s-theory__inner 
+                        .s-theory__header 
+                            h2.h2.s-theory__title Теория принятия решений для вашего бизнеса.
+
+                        .s-theory__body
+                            .slider.s-theory__slider(data-component="slider", data-slider-id="theory")
+                                .swiper.slider__inner(data-slider="inner")
+                                    .swiper-wrapper.slider__wrapper
+                                        .swiper-slide.slider__slide
+                                            .s-theory__item 
+                                                img(src="assets/images/theory/item-1.svg", alt="")
+                                                h4 Мы сформулируем аналитическую задачу.
+
+                                        .swiper-slide.slider__slide
+                                            .s-theory__item 
+                                                img(src="assets/images/theory/item-2.svg", alt="")
+                                                h4 Мы переведем ваши бизнес-цели в математическую форму.
+
+                                        .swiper-slide.slider__slide
+                                            .s-theory__item 
+                                                img(src="assets/images/theory/item-3.svg", alt="")
+                                                h4 Подберем механизмы оптимизации и алгоритмы для поиска решения задачи.
+                    
+            section.section.s-services(id="services")
+                .container 
+                    .s-services__inner 
+                        .s-services__header 
+                            h2.h2.s-services__title Сервисы:
+
+                        .s-services__body(data-component="tabs")
+                            .s-services__nav 
+                                +badges({
+                                    style: [], 
+                                    attrs: {}, 
+                                    badgeDataset: {'data-tab': 'link'}, 
+                                    type: 'button', 
+                                    class: '', 
+                                    name: 'badges-1', 
+                                    scroll: true,
+                                    items: [
+                                        {
+                                            style: '', 
+                                            active: true, 
+                                            disabled: false, 
+                                            content: {text: 'Обучение'}
+                                        }, 
+                                        {
+                                            style: '', 
+                                            active: false, 
+                                            disabled: false, 
+                                            content: {text: 'Консалтинг'}
+                                        }, 
+                                        {
+                                            style: '', 
+                                            active: false, 
+                                            disabled: false, 
+                                            content: {text: 'Разработка'}
+                                        }
+                                    ]
+                                })
+                        
+                            .s-services__content 
+                                .s-services__group(data-tab="item")
+                                    .s-services__item 
+                                        img(src="assets/images/services/1.svg", alt="")
+                                        h4 Корпоративные тренинги и мастер-классы
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/2.svg", alt="")
+                                        h4 Переквалификация сотрудников компании или частных лиц
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/3.svg", alt="")
+                                        h4 Цикл лекций для разработчико
+
+                                    button.s-services__item.s-services__item--link(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                                        +icon('soc-telegram')
+                                        span Отправить #[br] заявку
+                                    
+                                .s-services__group(data-tab="item")
+                                    .s-services__item 
+                                        img(src="assets/images/services/4.svg", alt="")
+                                        h4 Анализ бизнес процессов на предмет применения оптимизационных моделей
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/5.svg", alt="")
+                                        h4 Собеседование кандидатов по мат. моделированию и оптимизации
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/6.svg", alt="")
+                                        h4 Участие в приемо-сдаточных испытаниях в качестве эксперта
+                                    
+                                    button.s-services__item.s-services__item--link(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                                        +icon('soc-telegram')
+                                        span Отправить #[br] заявку
+                                        
+                                .s-services__group(data-tab="item")
+                                    .s-services__item 
+                                        img(src="assets/images/services/7.svg", alt="")
+                                        h4 Проектирование и python реализация прототипа оптимизационной модели
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/8.svg", alt="")
+                                        h4 Управление командой “математиков” по разработке оптимизационных решений
+                                    
+                                    .s-services__item 
+                                        img(src="assets/images/services/9.svg", alt="")
+                                        h4 Поддержка и доработка текущего оптимизационного решения
+                                    
+                                    button.s-services__item.s-services__item--link(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                                        +icon('soc-telegram')
+                                        span Отправить #[br] заявку
+                        
+                        button.button.s-services__button(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
+                            span.button__text Отправить заявку
+
+            section.section.s-about(id="about")
+                img.s-about__bg(src="assets/images/about/bg.svg", alt="")
+                .container 
+                    .s-about__inner 
+                        picture.s-about__image 
+                            img(src="assets/images/about/photo.jpg" srcset="assets/images/about/photo--retina.jpg 2x" alt="")
+
+                        .s-about__main 
+                            h2.h4.s-about__title Автор – Алексис Ложкинс #[span Разработчик математических моделей, консультант и игрок в большой теннис]
+                            p.s-about__text Начиная с 2014 года накапливаю практический опыт в промышленной и прикладной математике, предписывающей аналитике и бизнес-анализе. В моем портфолио ряд успешных историй в области оптимизации и автоматизации бизнес процессов.  Слежу за текущими тенденциями практического применения методов оптимизации и моделирования.
+
+                            button.button.s-about__button(type="button", data-bs-toggle="modal", data-bs-target="#m-info")
+                                span.button__text Узнать больше
+                            
+            section.section.s-articles(id="articles")
+                .container 
+                    .s-articles__inner 
+                        .s-articles__grid 
+                            a.c-article(href="#")
+                                .c-article__image 
+                                    img(src="assets/images/articles/card-1.jpg", alt="")
+                                    
+                                .c-article__labels 
+                                    span Анализ
+
+                                .c-article__content 
+                                    h4 Математическое моделирование в ORtools: задача планирования расписаний
+                                    p Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies
+                            
+                            a.c-article(href="#")
+                                .c-article__image 
+                                    img(src="assets/images/articles/card-2.jpg", alt="")
+                                    
+                                .c-article__labels 
+                                    span Анализ
+
+                                .c-article__content 
+                                    h4 Математическое моделирование в ORtools: задача планирования расписаний
+                                    p Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies
+                        
+                            a.c-article(href="#")
+                                .c-article__image 
+                                    img(src="assets/images/articles/card-3.jpg", alt="")
+                                    
+                                .c-article__labels 
+                                    span Анализ
+
+                                .c-article__content 
+                                    h4 Математическое моделирование в ORtools: задача планирования расписаний
+                                    p Эксперт по математической оптимизации в ПГК - Диджитал, тим-лид команды по математическому моделирования в Huawei, консультант по вопросам исследования операций в BIA-Technologies
+
+
+                        .s-articles__more 
+                            a.link.s-articles__more-link(href="#" target="_blank") 
+                                span Читать статьи на Хабр
+                                +icon('soc-habr')
+     
+    .layout__main-footer
+        section.section.s-subscribe(id="subscribe")
+            .container.s-subscribe__container
+                .s-subscribe__inner 
+                    .s-subscribe__header 
+                        h2.h2.s-subscribe__title Будьте в курсе всех новостей
+                    
+                    .s-subscribe__body 
+                        .form.s-subscribe__form 
+                            form(action="#") 
+                                .form__inner 
+                                    +input({
+                                        class: ['form__input', 'input--light', 'input--lg'],
+                                        attrs: {},
+                                        type: 'text',
+                                        name: 'input',
+                                        placeholder: 'Ваш Email',
+                                        value: '',
+                                        disabled: false,
+                                        inputDataset: {},
+                                        status: '',
+                                        mask: 'mail',
+                                        required: false,
+                                    })
+                                    
+                                    button.button.button--light.button--lg.form__submit(type="submit")
+                                        span.button__text Подписаться
+
+                                    p.form__policy Отправляя свои персональные данные, вы соглашаетесь с #[a(href="#") политикой обработки персональных данных]
+        +footer()

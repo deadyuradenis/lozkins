@@ -18,16 +18,13 @@ mixin header(props = { class: [], attrs: {} })
                 a.header__logo(href="index.html") 
                     +icon('logo')
             
-                nav.nav.header__nav 
-                    a(href="#").nav__link Главная
-                    a(href="#").nav__link Сервисы
-                    a(href="#").nav__link Автор
-                    a(href="#").nav__link Статьи
+                .header__nav 
+                    +nav()
                 
                 button.header__action(type="button", data-bs-toggle="modal", data-bs-target="#m-callback")
                     span Заявка
                     +icon('soc-telegram')
 
-                button.header__next(type="button", data-header="next")
+                a.header__next(href="#specialization")
                     +icon('arrow--down')
         
